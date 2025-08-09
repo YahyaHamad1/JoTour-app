@@ -50,15 +50,29 @@ document.getElementById("bookingForm").addEventListener("submit", function(e) {
         message: formData.get('message')
     };
     
-    // For demo purposes, just show an alert
-    alert(`Thank you ${bookingData.fullName}! Your booking for ${bookingData.tourName} has been received. We'll contact you at ${bookingData.email} shortly to confirm details and process payment.`);
-    
-    // In a real app, you would send this data to a server
-    console.log(bookingData);
-    
-    // Close modal and reset form
-    modal.style.display = "none";
-    this.reset();
+    // Submit to Formspree
+    fetch(this.action, {
+        method: 'POST',
+        body: formData,
+        headers: {
+            'Accept': 'application/json'
+        }
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.ok) {
+            alert(`Thank you ${bookingData.fullName}! Your booking for ${bookingData.tourName} has been received. We'll contact you at ${bookingData.email} shortly to confirm details and process payment.`);
+            // Close modal and reset form
+            modal.style.display = "none";
+            this.reset();
+        } else {
+            alert('Oops! There was a problem. Please try again or contact us directly.');
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        alert('Oops! There was a problem. Please try again or contact us directly.');
+    });
 });
 
 // Smooth scroll to tours section
