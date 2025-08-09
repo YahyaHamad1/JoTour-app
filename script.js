@@ -61,17 +61,16 @@ document.getElementById("bookingForm").addEventListener("submit", function(e) {
     .then(response => response.json())
     .then(data => {
         if (data.ok) {
-            alert(`Thank you ${bookingData.fullName}! Your booking for ${bookingData.tourName} has been received. We'll contact you at ${bookingData.email} shortly to confirm details and process payment.`);
-            // Close modal and reset form
+            alert(`Thank you ${bookingData.fullName}! Your booking for ${bookingData.tourName} has been received.`);
             modal.style.display = "none";
             this.reset();
         } else {
-            alert('Oops! There was a problem. Please try again or contact us directly.');
+            alert('Oops! There was a problem. Please try again.');
         }
     })
     .catch(error => {
         console.error('Error:', error);
-        alert('Oops! There was a problem. Please try again or contact us directly.');
+        alert('Oops! There was a problem. Please try again.');
     });
 });
 
