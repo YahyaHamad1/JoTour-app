@@ -329,26 +329,16 @@ footer {
 header {
     position: relative;
 }
-/* Responsive */
-@media (max-width: 768px) {
-    header h1 {
-        font-size: 2rem;
-    }
-    
-    .hero h2 {
-        font-size: 2rem;
-    }
-    
-    .tour-grid,
-    .video-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .family-name {
-        font-family: 'Lucida Handwriting', cursive;
-        font-size: 1rem;
-        color: #fdbb2d; /* Gold color */
-        top: 10px;
-        right: 15px;
-    }
+/* Family Name Styling */
+.family-name {
+    position: absolute;
+    top: 15px;
+    left: 20px; /* Changed from right to left */
+    right: auto; /* Remove right positioning */
+    font-family: 'Lucida Handwriting', cursive;
+    font-size: 1.2rem;
+    color: #FFD700; /* More vibrant gold color */
+    text-shadow: 0px 0px 5px rgba(255, 215, 0, 0.7); /* Gold glow effect */
+    font-weight: bold; /* Make it more prominent */
+    z-index: 10;
 }
