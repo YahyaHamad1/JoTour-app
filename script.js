@@ -33,7 +33,7 @@ document.getElementById("travelers").addEventListener("change", function() {
     document.getElementById("totalPriceDisplay").textContent = `$${total}`;
 });
 
-// Handle form submission
+// Handle form submission with loading state and notification
 document.getElementById("bookingForm").addEventListener("submit", function(e) {
     e.preventDefault();
     
@@ -61,6 +61,12 @@ document.getElementById("bookingForm").addEventListener("submit", function(e) {
     // Update FormData with total price
     formData.set('totalPrice', total);
     
+    // NEW: Show loading state
+    const submitBtn = document.querySelector(".submit-btn");
+    const originalText = submitBtn.textContent;
+    submitBtn.textContent = "Processing...";
+    submitBtn.disabled = true;
+    
     // Submit to Formspree
     fetch(this.action, {
         method: 'POST',
@@ -72,20 +78,62 @@ document.getElementById("bookingForm").addEventListener("submit", function(e) {
     .then(response => response.json())
     .then(data => {
         if (data.ok) {
-            alert(`Thank you ${bookingData.fullName}! Your booking for ${bookingData.tourName} has been received. Total: $${total}. Please pay in cash on arrival. We accept USD, JOD, EUR as the way of payment. You will be given a receipt after payment.`);
+            // NEW: Show success notification instead of alert
+            showNotification(`Thank you ${bookingData.fullName}! Your booking for ${bookingData.tourName} has been received. Total: $${total}. Please pay in cash on arrival.`);
             modal.style.display = "none";
             this.reset();
         } else {
-            alert('Oops! There was a problem. Please try again.');
+            // NEW: Show error notification
+            showNotification('Oops! There was a problem. Please try again.', 'error');
         }
     })
     .catch(error => {
         console.error('Error:', error);
-        alert('Oops! There was a problem. Please try again.');
+        // NEW: Show error notification
+        showNotification('Oops! There was a problem. Please try again.', 'error');
+    })
+    .finally(() => {
+        // NEW: Reset button state
+        submitBtn.textContent = originalText;
+        submitBtn.disabled = false;
     });
 });
 
 // Smooth scroll to tours section
 function scrollToTours() {
     document.getElementById("tours").scrollIntoView({ behavior: 'smooth' });
+}
+
+// NEW: Lazy loading for tour card background images
+document.addEventListener("DOMContentLoaded", function() {
+    const tourImages = document.querySelectorAll('.tour-image[data-background]');
+    const imageObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const img = entry.target;
+                const bgUrl = img.getAttribute('data-background');
+                img.style.backgroundImage = `url('${bgUrl}')`;
+                img.removeAttribute('data-background');
+                imageObserver.unobserve(img);
+            }
+        });
+    });
+    
+    tourImages.forEach(img => imageObserver.observe(img));
+});
+
+// NEW: Notification system
+function showNotification(message, type = 'success') {
+    const notification = document.getElementById('notification');
+    notification.textContent = message;
+    notification.className = 'notification show';
+    
+    if (type === 'error') {
+        notification.classList.add('error');
+    }
+    
+    // Hide after 5 seconds
+    setTimeout(() => {
+        notification.classList.remove('show');
+    }, 5000);
 }
