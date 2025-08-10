@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JoTour - Reels</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="reels.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="family-name">AlMa'ali group</div>
+        <div class="container">
+            <h1><i class="fas fa-mountain-sun"></i> JoTour</h1>
+            <p>Discover Jordan's Hidden Gems</p>
+        </div>
+        <!-- Menu Button -->
+        <div class="menu-container">
+            <button class="menu-button" id="menuButton">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="menu-dropdown" id="menuDropdown">
+                <ul>
+                    <li><a href="index.html" class="menu-home" data-i18n="menu.home">Home</a></li>
+                    <li class="language-menu">
+                        <a href="#" class="menu-language" data-i18n="menu.language">Language <i class="fas fa-chevron-down"></i></a>
+                        <ul class="language-options">
+                            <li><a href="#" data-lang="en">English</a></li>
+                            <li><a href="#" data-lang="es">Español</a></li>
+                            <li><a href="#" data-lang="fr">Français</a></li>
+                            <li><a href="#" data-lang="de">Deutsch</a></li>
+                            <li><a href="#" data-lang="zh">中文</a></li>
+                            <li><a href="#" data-lang="ja">日本語</a></li>
+                            <li><a href="#" data-lang="ru">Русский</a></li>
+                            <li><a href="#" data-lang="ar">العربية</a></li>
+                            <li><a href="#" data-lang="pt">Português</a></li>
+                            <li><a href="#" data-lang="it">Italiano</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="reels.html" class="menu-reels active" data-i18n="menu.reels">Reels</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Reels Container -->
+    <div class="reels-container">
+        <div class="reels-header">
+            <h2 data-i18n="reels.title">Tourist Reels</h2>
+            <p data-i18n="reels.subtitle">Experience Jordan through the eyes of our travelers</p>
+        </div>
+        
+        <div class="reels-feed" id="reelsFeed">
+            <!-- Reels will be dynamically loaded here -->
+        </div>
+    </div>
+    
+    <!-- Share Modal -->
+    <div id="shareModal" class="modal">
+        <div class="modal-content share-modal-content">
+            <span class="close">&times;</span>
+            <h2 data-i18n="share.title">Share this reel</h2>
+            <div class="share-options">
+                <a href="#" class="share-btn" data-platform="instagram">
+                    <i class="fab fa-instagram"></i>
+                    <span data-i18n="share.instagram">Instagram</span>
+                </a>
+                <a href="#" class="share-btn" data-platform="tiktok">
+                    <i class="fab fa-tiktok"></i>
+                    <span data-i18n="share.tiktok">TikTok</span>
+                </a>
+                <a href="#" class="share-btn" data-platform="snapchat">
+                    <i class="fab fa-snapchat"></i>
+                    <span data-i18n="share.snapchat">Snapchat</span>
+                </a>
+                <a href="#" class="share-btn" data-platform="whatsapp">
+                    <i class="fab fa-whatsapp"></i>
+                    <span data-i18n="share.whatsapp">WhatsApp</span>
+                </a>
+                <a href="#" class="share-btn" data-platform="twitter">
+                    <i class="fab fa-twitter"></i>
+                    <span data-i18n="share.twitter">Twitter</span>
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Notification Container -->
+    <div id="notification" class="notification"></div>
+    
+    <script src="reels.js"></script>
+</body>
+</html>
