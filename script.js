@@ -5,6 +5,7 @@ const translations = {
         "header.subtitle": "Discover Jordan's Hidden Gems",
         "menu.home": "Home",
         "menu.language": "Language",
+        "menu.reels": "Reels",
         "hero.title": "Experience Jordan Like Never Before",
         "hero.subtitle": "Authentic tours • Local guides • Unforgettable memories",
         "hero.explore": "Explore Tours",
@@ -55,6 +56,7 @@ const translations = {
         "header.subtitle": "Descubre los Tesoros Escondidos de Jordania",
         "menu.home": "Inicio",
         "menu.language": "Idioma",
+        "menu.reels": "Reels",
         "hero.title": "Experimenta Jordania Como Nunca Antes",
         "hero.subtitle": "Tours auténticos • Guías locales • Recuerdos inolvidables",
         "hero.explore": "Explorar Tours",
@@ -105,6 +107,7 @@ const translations = {
         "header.subtitle": "Découvrez les Trésors Cachés de la Jordanie",
         "menu.home": "Accueil",
         "menu.language": "Langue",
+        "menu.reels": "Reels",
         "hero.title": "Découvrez la Jordanie Comme Jamais Auparavant",
         "hero.subtitle": "Visites authentiques • Guides locaux • Souvenirs inoubliables",
         "hero.explore": "Explorer les Visites",
@@ -114,7 +117,7 @@ const translations = {
         "tours.wadi": "Désert de Wadi Rum",
         "tours.wadi_desc": "Paysage martien avec la culture bédouine",
         "tours.deadsea": "Détente à la Mer Morte",
-        "tours.deadsea_desc": "Flottez sur la mer la plus salée de la Terre",
+        "tours.deadsea_desc": "Flotez sur la mer la plus salée de la Terre",
         "tours.guide": "Guide privé",
         "tours.pickup": "Navette hôtel",
         "tours.lunch": "Déjeuner inclus",
@@ -155,6 +158,7 @@ const translations = {
         "header.subtitle": "Entdecke Jordans Verborgene Schätze",
         "menu.home": "Startseite",
         "menu.language": "Sprache",
+        "menu.reels": "Reels",
         "hero.title": "Erlebe Jordanien Wie Nie Zuvor",
         "hero.subtitle": "Authentische Touren • Einheimische Führer • Unvergessliche Erinnerungen",
         "hero.explore": "Touren Erkunden",
@@ -205,6 +209,7 @@ const translations = {
         "header.subtitle": "发现约旦的隐藏宝藏",
         "menu.home": "首页",
         "menu.language": "语言",
+        "menu.reels": "Reels",
         "hero.title": "前所未有的约旦体验",
         "hero.subtitle": "正宗旅游 • 当地导游 • 难忘回忆",
         "hero.explore": "探索旅游",
@@ -255,6 +260,7 @@ const translations = {
         "header.subtitle": "ヨルダンの隠れた宝石を発見",
         "menu.home": "ホーム",
         "menu.language": "言語",
+        "menu.reels": "リール",
         "hero.title": "これまでにないヨルダン体験",
         "hero.subtitle": "本格的なツアー • 地元のガイド • 忘れられない思い出",
         "hero.explore": "ツアーを探索",
@@ -305,6 +311,7 @@ const translations = {
         "header.subtitle": "Откройте Скрытые Сокровища Иордании",
         "menu.home": "Главная",
         "menu.language": "Язык",
+        "menu.reels": "Reels",
         "hero.title": "Познакомьтесь с Иорданией Как Никогда Раньше",
         "hero.subtitle": "Аутентичные туры • Местные гиды • Незабываемые воспоминания",
         "hero.explore": "Исследовать Туры",
@@ -355,6 +362,7 @@ const translations = {
         "header.subtitle": "اكتشف كنوز الأردن الخفية",
         "menu.home": "الرئيسية",
         "menu.language": "اللغة",
+        "menu.reels": "رييلز",
         "hero.title": "اختبر الأردن كما لم تفعل من قبل",
         "hero.subtitle": "جولات أصيلة • مرشدون محليون • ذكريات لا تُنسى",
         "hero.explore": "استكشف الجولات",
@@ -405,6 +413,7 @@ const translations = {
         "header.subtitle": "Descubra os Tesouros Escondidos da Jordânia",
         "menu.home": "Início",
         "menu.language": "Idioma",
+        "menu.reels": "Reels",
         "hero.title": "Experimente a Jordânia Como Nunca Antes",
         "hero.subtitle": "Tours autênticos • Guias locais • Memórias inesquecíveis",
         "hero.explore": "Explorar Tours",
@@ -455,6 +464,7 @@ const translations = {
         "header.subtitle": "Scopri i Tesori Nascosti della Giordania",
         "menu.home": "Home",
         "menu.language": "Lingua",
+        "menu.reels": "Reels",
         "hero.title": "Sperimenta la Giordania Come Mai Prima",
         "hero.subtitle": "Tour autentici • Guide locali • Ricordi indimenticabili",
         "hero.explore": "Esplora Tour",
@@ -519,6 +529,8 @@ menuButton.addEventListener("click", function() {
 document.addEventListener("click", function(event) {
     if (!menuButton.contains(event.target) && !menuDropdown.contains(event.target)) {
         menuDropdown.classList.remove("show");
+        // Also close the language submenu
+        document.querySelector(".language-menu").classList.remove("active");
     }
 });
 
@@ -532,6 +544,13 @@ document.querySelector(".menu-home").addEventListener("click", function(e) {
     menuDropdown.classList.remove("show");
 });
 
+// Language menu click event
+document.querySelector(".menu-language").addEventListener("click", function(e) {
+    e.preventDefault();
+    e.stopPropagation(); // Prevent the menu from closing
+    this.parentElement.classList.toggle("active");
+});
+
 // Language selection functionality
 document.querySelectorAll(".language-options a").forEach(langLink => {
     langLink.addEventListener("click", function(e) {
@@ -539,6 +558,7 @@ document.querySelectorAll(".language-options a").forEach(langLink => {
         const selectedLang = this.getAttribute("data-lang");
         changeLanguage(selectedLang);
         menuDropdown.classList.remove("show");
+        document.querySelector(".language-menu").classList.remove("active");
     });
 });
 
