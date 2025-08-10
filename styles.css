@@ -289,6 +289,23 @@ header p {
     color: #e74c3c;
 }
 
+.payment-info {
+    background: #f0f8ff;
+    padding: 1rem;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+    border-left: 4px solid #3498db;
+}
+
+.payment-info p {
+    margin-bottom: 0.5rem;
+}
+
+.payment-info small {
+    color: #666;
+    font-style: italic;
+}
+
 .submit-btn {
     background: #27ae60;
     color: white;
