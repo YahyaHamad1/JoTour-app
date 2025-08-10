@@ -15,19 +15,45 @@
             <h1><i class="fas fa-mountain-sun"></i> JoTour</h1>
             <p>Discover Jordan's Hidden Gems</p>
         </div>
+        <!-- Menu Button -->
+        <div class="menu-container">
+            <button class="menu-button" id="menuButton">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="menu-dropdown" id="menuDropdown">
+                <ul>
+                    <li><a href="#" class="menu-home" data-i18n="menu.home">Home</a></li>
+                    <li class="language-menu">
+                        <a href="#" class="menu-language" data-i18n="menu.language">Language <i class="fas fa-chevron-down"></i></a>
+                        <ul class="language-options">
+                            <li><a href="#" data-lang="en">English</a></li>
+                            <li><a href="#" data-lang="es">Español</a></li>
+                            <li><a href="#" data-lang="fr">Français</a></li>
+                            <li><a href="#" data-lang="de">Deutsch</a></li>
+                            <li><a href="#" data-lang="zh">中文</a></li>
+                            <li><a href="#" data-lang="ja">日本語</a></li>
+                            <li><a href="#" data-lang="ru">Русский</a></li>
+                            <li><a href="#" data-lang="ar">العربية</a></li>
+                            <li><a href="#" data-lang="pt">Português</a></li>
+                            <li><a href="#" data-lang="it">Italiano</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
     </header>
     <!-- Hero Section -->
     <section class="hero">
         <div class="container">
-            <h2>Experience Jordan Like Never Before</h2>
-            <p>Authentic tours • Local guides • Unforgettable memories</p>
-            <button class="cta-button" onclick="scrollToTours()">Explore Tours</button>
+            <h2 data-i18n="hero.title">Experience Jordan Like Never Before</h2>
+            <p data-i18n="hero.subtitle">Authentic tours • Local guides • Unforgettable memories</p>
+            <button class="cta-button" onclick="scrollToTours()" data-i18n="hero.explore">Explore Tours</button>
         </div>
     </section>
     <!-- Tours Section -->
     <section id="tours" class="tours">
         <div class="container">
-            <h2>Popular Tours</h2>
+            <h2 data-i18n="tours.title">Popular Tours</h2>
             <div class="tour-grid">
                 <!-- Petra Tour -->
                 <div class="tour-card">
@@ -35,14 +61,14 @@
                         <div class="tour-price">$99</div>
                     </div>
                     <div class="tour-content">
-                        <h3><i class="fas fa-landmark"></i> Petra Full Day</h3>
-                        <p>Ancient city carved in rose-red cliffs</p>
+                        <h3><i class="fas fa-landmark"></i> <span data-i18n="tours.petra">Petra Full Day</span></h3>
+                        <p data-i18n="tours.petra_desc">Ancient city carved in rose-red cliffs</p>
                         <ul>
-                            <li><i class="fas fa-check"></i> Private guide</li>
-                            <li><i class="fas fa-check"></i> Hotel pickup</li>
-                            <li><i class="fas fa-check"></i> Lunch included</li>
+                            <li><i class="fas fa-check"></i> <span data-i18n="tours.guide">Private guide</span></li>
+                            <li><i class="fas fa-check"></i> <span data-i18n="tours.pickup">Hotel pickup</span></li>
+                            <li><i class="fas fa-check"></i> <span data-i18n="tours.lunch">Lunch included</span></li>
                         </ul>
-                        <button class="book-btn" onclick="openBooking('Petra Full Day', 99)">Book Now</button>
+                        <button class="book-btn" onclick="openBooking('Petra Full Day', 99)" data-i18n="tours.book">Book Now</button>
                     </div>
                 </div>
                 <!-- Wadi Rum Tour -->
@@ -51,14 +77,14 @@
                         <div class="tour-price">$79</div>
                     </div>
                     <div class="tour-content">
-                        <h3><i class="fas fa-moon"></i> Wadi Rum Desert</h3>
-                        <p>Mars-like landscape with Bedouin culture</p>
+                        <h3><i class="fas fa-moon"></i> <span data-i18n="tours.wadi">Wadi Rum Desert</span></h3>
+                        <p data-i18n="tours.wadi_desc">Mars-like landscape with Bedouin culture</p>
                         <ul>
-                            <li><i class="fas fa-check"></i> Jeep safari</li>
-                            <li><i class="fas fa-check"></i> Stargazing</li>
-                            <li><i class="fas fa-check"></i> Traditional dinner</li>
+                            <li><i class="fas fa-check"></i> <span data-i18n="tours.jeep">Jeep safari</span></li>
+                            <li><i class="fas fa-check"></i> <span data-i18n="tours.stars">Stargazing</span></li>
+                            <li><i class="fas fa-check"></i> <span data-i18n="tours.dinner">Traditional dinner</span></li>
                         </ul>
-                        <button class="book-btn" onclick="openBooking('Wadi Rum Desert', 79)">Book Now</button>
+                        <button class="book-btn" onclick="openBooking('Wadi Rum Desert', 79)" data-i18n="tours.book">Book Now</button>
                     </div>
                 </div>
                 <!-- Dead Sea Tour -->
@@ -67,14 +93,14 @@
                         <div class="tour-price">$59</div>
                     </div>
                     <div class="tour-content">
-                        <h3><i class="fas fa-water"></i> Dead Sea Relaxation</h3>
-                        <p>Float in the saltiest sea on Earth</p>
+                        <h3><i class="fas fa-water"></i> <span data-i18n="tours.deadsea">Dead Sea Relaxation</span></h3>
+                        <p data-i18n="tours.deadsea_desc">Float in the saltiest sea on Earth</p>
                         <ul>
-                            <li><i class="fas fa-check"></i> Spa access</li>
-                            <li><i class="fas fa-check"></i> Mud treatment</li>
-                            <li><i class="fas fa-check"></i> Beach resort</li>
+                            <li><i class="fas fa-check"></i> <span data-i18n="tours.spa">Spa access</span></li>
+                            <li><i class="fas fa-check"></i> <span data-i18n="tours.mud">Mud treatment</span></li>
+                            <li><i class="fas fa-check"></i> <span data-i18n="tours.resort">Beach resort</span></li>
                         </ul>
-                        <button class="book-btn" onclick="openBooking('Dead Sea Relaxation', 59)">Book Now</button>
+                        <button class="book-btn" onclick="openBooking('Dead Sea Relaxation', 59)" data-i18n="tours.book">Book Now</button>
                     </div>
                 </div>
             </div>
@@ -83,19 +109,19 @@
     <!-- Video Section -->
     <section class="videos">
         <div class="container">
-            <h2>Experience Jordan Through Our Eyes</h2>
+            <h2 data-i18n="videos.title">Experience Jordan Through Our Eyes</h2>
             <div class="video-grid">
                 <div class="video-card">
                     <iframe src="https://www.youtube.com/embed/UY7QQIy-u8k" frameborder="0" allowfullscreen></iframe>
-                    <h3>Petra Sunrise Magic</h3>
+                    <h3 data-i18n="videos.petra">Petra Sunrise Magic</h3>
                 </div>
                 <div class="video-card">
                     <iframe src="https://www.youtube.com/embed/pzVfjC3uVzU" frameborder="0" allowfullscreen></iframe>
-                    <h3>Wadi Rum Adventure</h3>
+                    <h3 data-i18n="videos.wadi">Wadi Rum Adventure</h3>
                 </div>
                 <div class="video-card">
                     <iframe src="https://www.youtube.com/embed/izA_mWVBU0w" frameborder="0" allowfullscreen></iframe>
-                    <h3>Dead Sea Relaxation</h3>
+                    <h3 data-i18n="videos.deadsea">Dead Sea Relaxation</h3>
                 </div>
             </div>
         </div>
@@ -104,7 +130,7 @@
     <div id="bookingModal" class="modal">
         <div class="modal-content">
             <span class="close">&times;</span>
-            <h2>Book Your Tour</h2>
+            <h2 data-i18n="booking.title">Book Your Tour</h2>
             <form action="https://formspree.io/f/xvgqdoyz" method="POST" id="bookingForm">
                 <input type="hidden" id="tourName" name="tourName">
                 <input type="hidden" id="tourPrice" name="tourPrice">
@@ -112,53 +138,53 @@
                 <input type="hidden" name="_subject" value="New JoTour Booking!">
                 
                 <div class="form-group">
-                    <label for="fullName">Full Name</label>
+                    <label for="fullName" data-i18n="booking.name">Full Name</label>
                     <input type="text" id="fullName" name="fullName" required>
                 </div>
                 
                 <div class="form-group">
-                    <label for="email">Email</label>
+                    <label for="email" data-i18n="booking.email">Email</label>
                     <input type="email" id="email" name="email" required>
                 </div>
                 
                 <div class="form-group">
-                    <label for="phone">Phone Number</label>
+                    <label for="phone" data-i18n="booking.phone">Phone Number</label>
                     <input type="tel" id="phone" name="phone" required>
                 </div>
                 
                 <div class="form-group">
-                    <label for="tourDate">Preferred Date</label>
+                    <label for="tourDate" data-i18n="booking.date">Preferred Date</label>
                     <input type="date" id="tourDate" name="tourDate" required>
                 </div>
                 
                 <div class="form-group">
-                    <label for="travelers">Number of Travelers</label>
+                    <label for="travelers" data-i18n="booking.travelers">Number of Travelers</label>
                     <select id="travelers" name="travelers" required>
-                        <option value="1">1 Person</option>
-                        <option value="2">2 People</option>
-                        <option value="3">3 People</option>
-                        <option value="4">4 People</option>
-                        <option value="5+">5+ People</option>
+                        <option value="1" data-i18n="booking.person1">1 Person</option>
+                        <option value="2" data-i18n="booking.person2">2 People</option>
+                        <option value="3" data-i18n="booking.person3">3 People</option>
+                        <option value="4" data-i18n="booking.person4">4 People</option>
+                        <option value="5+" data-i18n="booking.person5+">5+ People</option>
                     </select>
                 </div>
                 
                 <div class="form-group">
-                    <label for="message">Special Requests</label>
+                    <label for="message" data-i18n="booking.requests">Special Requests</label>
                     <textarea id="message" name="message" rows="3"></textarea>
                 </div>
                 
                 <div class="price-summary">
-                    <p>Tour: <span id="selectedTour"></span></p>
-                    <p>Price: <span id="selectedPrice"></span></p>
-                    <p>Total: <span id="totalPriceDisplay"></span></p>
+                    <p><span data-i18n="booking.tour">Tour</span>: <span id="selectedTour"></span></p>
+                    <p><span data-i18n="booking.price">Price</span>: <span id="selectedPrice"></span></p>
+                    <p><span data-i18n="booking.total">Total</span>: <span id="totalPriceDisplay"></span></p>
                 </div>
                 
                 <div class="payment-info">
-                    <p><strong>Payment Method:</strong> Cash on arrival</p>
-                    <p><small>We accept USD, JOD, EUR as the way of payment. You will be given a receipt after payment.</small></p>
+                    <p><strong data-i18n="booking.payment">Payment Method</strong>: <span data-i18n="booking.cash">Cash on arrival</span></p>
+                    <p><small data-i18n="booking.accept">We accept USD, JOD, EUR as the way of payment. You will be given a receipt after payment.</small></p>
                 </div>
                 
-                <button type="submit" class="submit-btn">Complete Booking</button>
+                <button type="submit" class="submit-btn" data-i18n="booking.complete">Complete Booking</button>
             </form>
         </div>
     </div>
@@ -166,7 +192,7 @@
     <div class="whatsapp-button">
         <a href="https://wa.me/962781518113" target="_blank" rel="noopener noreferrer">
             <i class="fab fa-whatsapp"></i>
-            <span class="whatsapp-text">24 hours customer service</span>
+            <span class="whatsapp-text" data-i18n="whatsapp.service">24 hours customer service</span>
         </a>
     </div>
     <!-- Footer -->
