@@ -8,7 +8,7 @@ function openBooking(tourName, tourPrice) {
     document.getElementById("tourPrice").value = tourPrice;
     document.getElementById("selectedTour").textContent = tourName;
     document.getElementById("selectedPrice").textContent = `$${tourPrice}`;
-    document.getElementById("totalPrice").textContent = `$${tourPrice}`;
+    document.getElementById("totalPriceDisplay").textContent = `$${tourPrice}`;
     
     modal.style.display = "block";
 }
@@ -30,7 +30,7 @@ document.getElementById("travelers").addEventListener("change", function() {
     const price = parseInt(document.getElementById("tourPrice").value);
     const travelers = this.value === "5+" ? 5 : parseInt(this.value);
     const total = price * travelers;
-    document.getElementById("totalPrice").textContent = `$${total}`;
+    document.getElementById("totalPriceDisplay").textContent = `$${total}`;
 });
 
 // Handle form submission
@@ -50,6 +50,17 @@ document.getElementById("bookingForm").addEventListener("submit", function(e) {
         message: formData.get('message')
     };
     
+    // Calculate total price
+    const price = parseInt(bookingData.tourPrice);
+    const travelers = bookingData.travelers === "5+" ? 5 : parseInt(bookingData.travelers);
+    const total = price * travelers;
+    
+    // Set total price in hidden field
+    document.getElementById("totalPrice").value = total;
+    
+    // Update FormData with total price
+    formData.set('totalPrice', total);
+    
     // Submit to Formspree
     fetch(this.action, {
         method: 'POST',
@@ -61,7 +72,7 @@ document.getElementById("bookingForm").addEventListener("submit", function(e) {
     .then(response => response.json())
     .then(data => {
         if (data.ok) {
-            alert(`Thank you ${bookingData.fullName}! Your booking for ${bookingData.tourName} has been received.`);
+            alert(`Thank you ${bookingData.fullName}! Your booking for ${bookingData.tourName} has been received. Total: $${total}. Please pay in cash on arrival. We consider any delays on your trip.`);
             modal.style.display = "none";
             this.reset();
         } else {
