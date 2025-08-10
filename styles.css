@@ -101,6 +101,9 @@ header p {
     font-size: 0.8rem;
 }
 /* Language Submenu */
+.language-menu {
+    position: relative;
+}
 .language-menu .language-options {
     position: absolute;
     top: 0;
@@ -112,7 +115,7 @@ header p {
     display: none;
     z-index: 102;
 }
-.language-menu:hover .language-options {
+.language-menu.active .language-options {
     display: block;
 }
 .language-menu .language-options a {
