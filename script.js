@@ -72,7 +72,7 @@ document.getElementById("bookingForm").addEventListener("submit", function(e) {
     .then(response => response.json())
     .then(data => {
         if (data.ok) {
-            alert(`Thank you ${bookingData.fullName}! Your booking for ${bookingData.tourName} has been received. Total: $${total}. Please pay in cash on arrival. We consider any delays on your trip.`);
+            alert(`Thank you ${bookingData.fullName}! Your booking for ${bookingData.tourName} has been received. Total: $${total}. Please pay in cash on arrival. We accept USD, JOD, EUR as the way of payment. You will be given a receipt after payment.`);
             modal.style.display = "none";
             this.reset();
         } else {
