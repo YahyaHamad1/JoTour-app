@@ -34,7 +34,7 @@
                 <!-- Petra Tour -->
                 <div class="tour-card">
                     <div class="tour-image" style="background: url('https://dynamic-media-cdn.tripadvisor.com/media/photo-o/22/8e/22/02/petra-by-night.jpg?w=1200&h=1200&s=1') center/cover;">
-                        <div class="tour-price">$100</div>
+                        <div class="tour-price">$99</div>
                     </div>
                     <div class="tour-content">
                         <h3><i class="fas fa-landmark"></i> Petra Full Day</h3>
@@ -44,14 +44,14 @@
                             <li><i class="fas fa-check"></i> Hotel pickup</li>
                             <li><i class="fas fa-check"></i> Lunch included</li>
                         </ul>
-                        <button class="book-btn" onclick="openBooking('Petra Full Day', 100)">Book Now</button>
+                        <button class="book-btn" onclick="openBooking('Petra Full Day', 99)">Book Now</button>
                     </div>
                 </div>
 
                 <!-- Wadi Rum Tour -->
                 <div class="tour-card">
                     <div class="tour-image" style="background: url('https://theorangebackpack.nl/wp-content/uploads/2019/06/Wadi-Rum-16-scaled.jpg') center/cover;">
-                        <div class="tour-price">$80</div>
+                        <div class="tour-price">$79</div>
                     </div>
                     <div class="tour-content">
                         <h3><i class="fas fa-moon"></i> Wadi Rum Desert</h3>
@@ -61,14 +61,14 @@
                             <li><i class="fas fa-check"></i> Stargazing</li>
                             <li><i class="fas fa-check"></i> Traditional dinner</li>
                         </ul>
-                        <button class="book-btn" onclick="openBooking('Wadi Rum Desert', 80)">Book Now</button>
+                        <button class="book-btn" onclick="openBooking('Wadi Rum Desert', 79)">Book Now</button>
                     </div>
                 </div>
 
                 <!-- Dead Sea Tour -->
                 <div class="tour-card">
                     <div class="tour-image" style="background: url('https://cdn.newsapi.com.au/image/v1/dc87992ed6662d6961f63580e8926dbb') center/cover;">
-                        <div class="tour-price">$60</div>
+                        <div class="tour-price">$59</div>
                     </div>
                     <div class="tour-content">
                         <h3><i class="fas fa-water"></i> Dead Sea Relaxation</h3>
@@ -78,7 +78,7 @@
                             <li><i class="fas fa-check"></i> Mud treatment</li>
                             <li><i class="fas fa-check"></i> Beach resort</li>
                         </ul>
-                        <button class="book-btn" onclick="openBooking('Dead Sea Relaxation', 60)">Book Now</button>
+                        <button class="book-btn" onclick="openBooking('Dead Sea Relaxation', 59)">Book Now</button>
                     </div>
                 </div>
             </div>
@@ -114,6 +114,7 @@
             <form action="https://formspree.io/f/xvgqdoyz" method="POST" id="bookingForm">
                 <input type="hidden" id="tourName" name="tourName">
                 <input type="hidden" id="tourPrice" name="tourPrice">
+                <input type="hidden" id="totalPrice" name="totalPrice">
                 <input type="hidden" name="_subject" value="New JoTour Booking!">
                 
                 <div class="form-group">
@@ -155,7 +156,12 @@
                 <div class="price-summary">
                     <p>Tour: <span id="selectedTour"></span></p>
                     <p>Price: <span id="selectedPrice"></span></p>
-                    <p>Total: <span id="totalPrice"></span></p>
+                    <p>Total: <span id="totalPriceDisplay"></span></p>
+                </div>
+                
+                <div class="payment-info">
+                    <p><strong>Payment Method:</strong> Cash on arrival</p>
+                    <p><small>We consider any delays on your trip.</small></p>
                 </div>
                 
                 <button type="submit" class="submit-btn">Complete Booking</button>
