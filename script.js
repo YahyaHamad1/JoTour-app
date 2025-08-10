@@ -1,3 +1,9 @@
+/*
+ * JoTour - Discover Jordan
+ * Copyright (c) 2025 AlMa'ali group
+ * All rights reserved.
+*/
+
 // Translations for 10 languages
 const translations = {
     en: {
