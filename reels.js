@@ -1,3 +1,9 @@
+/*
+ * JoTour - Discover Jordan
+ * Copyright (c) 2025 AlMa'ali group
+ * All rights reserved.
+*/
+
 // Reels data - in a real application, this would come from a database
 const reelsData = [
     {
