@@ -8,7 +8,7 @@
 const reelsData = [
     {
         id: 1,
-        videoSrc: "https://sample-videos.com/video123/mp4/720/big_buck_bunny_720p_1mb.mp4",
+        videoSrc: "https://www.youtube.com/shorts/lHHF3yy_t24",
         author: "Sarah Johnson",
         authorAvatar: "https://randomuser.me/api/portraits/women/44.jpg",
         description: "Amazing sunrise at Petra! The Treasury looks magical in the morning light. #Jordan #Petra #Travel",
@@ -21,7 +21,7 @@ const reelsData = [
     },
     {
         id: 2,
-        videoSrc: "https://sample-videos.com/video123/mp4/720/big_buck_bunny_720p_2mb.mp4",
+        videoSrc: "https://www.youtube.com/shorts/mDnsczwd-Wc",
         author: "Ahmed Hassan",
         authorAvatar: "https://randomuser.me/api/portraits/men/32.jpg",
         description: "Jeep safari in Wadi Rum! The desert landscape is out of this world. #WadiRum #Desert #Adventure",
@@ -34,7 +34,7 @@ const reelsData = [
     },
     {
         id: 3,
-        videoSrc: "https://sample-videos.com/video123/mp4/720/big_buck_bunny_720p_5mb.mp4",
+        videoSrc: "https://www.youtube.com/shorts/UcX1ORcxmAA",
         author: "Emma Wilson",
         authorAvatar: "https://randomuser.me/api/portraits/women/68.jpg",
         description: "Floating in the Dead Sea! The mud treatment was so relaxing. #DeadSea #Jordan #Relaxation",
