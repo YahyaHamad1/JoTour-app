@@ -504,16 +504,16 @@ footer {
         color: #FFD700;
         text-shadow: 0px 0px 5px rgba(255, 215, 0, 0.7);
         top: 10px;
-        left: 15px;
+        right: 15px;
     }
     
     .menu-container {
         top: 15px;
-        right: 15px;
+        left: 15px;
     }
     
     .menu-dropdown {
-        right: -10px;
+        left: -10px;
         min-width: 180px;
     }
     
