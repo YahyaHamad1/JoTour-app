@@ -3,7 +3,6 @@
  * Copyright (c) 2025 AlMa'ali group
  * All rights reserved.
 */
-
 /* Global Styles */
 * {
     margin: 0;
@@ -489,6 +488,10 @@ footer {
         font-size: 2rem;
     }
     
+    .hero p {
+        font-size: 1.2rem;
+    }
+    
     .tour-grid,
     .video-grid {
         grid-template-columns: 1fr;
@@ -531,5 +534,11 @@ footer {
     
     .whatsapp-text {
         font-size: 12px;
+    }
+    
+    .modal-content {
+        width: 95%;
+        margin: 10% auto;
+        padding: 1.5rem;
     }
 }
