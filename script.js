@@ -3,7 +3,6 @@
  * Copyright (c) 2025 AlMa'ali group
  * All rights reserved.
 */
-
 // Translations for 10 languages
 const translations = {
     en: {
@@ -517,20 +516,16 @@ const translations = {
         "whatsapp.service": "Servizio clienti 24 ore su 24"
     }
 };
-
 // Modal functionality
 const modal = document.getElementById("bookingModal");
 const closeBtn = document.getElementsByClassName("close")[0];
-
 // Menu functionality
 const menuButton = document.getElementById("menuButton");
 const menuDropdown = document.getElementById("menuDropdown");
-
 // Toggle menu dropdown
 menuButton.addEventListener("click", function() {
     menuDropdown.classList.toggle("show");
 });
-
 // Close menu when clicking outside
 document.addEventListener("click", function(event) {
     if (!menuButton.contains(event.target) && !menuDropdown.contains(event.target)) {
@@ -539,7 +534,6 @@ document.addEventListener("click", function(event) {
         document.querySelector(".language-menu").classList.remove("active");
     }
 });
-
 // Home button functionality
 document.querySelector(".menu-home").addEventListener("click", function(e) {
     e.preventDefault();
@@ -549,14 +543,12 @@ document.querySelector(".menu-home").addEventListener("click", function(e) {
     });
     menuDropdown.classList.remove("show");
 });
-
 // Language menu click event
 document.querySelector(".menu-language").addEventListener("click", function(e) {
     e.preventDefault();
     e.stopPropagation(); // Prevent the menu from closing
     this.parentElement.classList.toggle("active");
 });
-
 // Language selection functionality
 document.querySelectorAll(".language-options a").forEach(langLink => {
     langLink.addEventListener("click", function(e) {
@@ -567,7 +559,6 @@ document.querySelectorAll(".language-options a").forEach(langLink => {
         document.querySelector(".language-menu").classList.remove("active");
     });
 });
-
 // Change language function
 function changeLanguage(lang) {
     // Save language preference to localStorage
@@ -594,7 +585,6 @@ function changeLanguage(lang) {
     // Show notification
     showNotification(`Language changed to ${getLanguageName(lang)}`);
 }
-
 // Get language name from code
 function getLanguageName(langCode) {
     const langNames = {
@@ -611,7 +601,6 @@ function getLanguageName(langCode) {
     };
     return langNames[langCode] || langCode;
 }
-
 // Initialize language from localStorage or browser language
 function initializeLanguage() {
     // Check if language is saved in localStorage
@@ -631,7 +620,6 @@ function initializeLanguage() {
     // Default to English if no match
     changeLanguage("en");
 }
-
 // Open booking modal
 function openBooking(tourName, tourPrice) {
     document.getElementById("tourName").value = tourName;
@@ -642,19 +630,16 @@ function openBooking(tourName, tourPrice) {
     
     modal.style.display = "block";
 }
-
 // Close modal
 closeBtn.onclick = function() {
     modal.style.display = "none";
 }
-
 // Close modal when clicking outside
 window.onclick = function(event) {
     if (event.target == modal) {
         modal.style.display = "none";
     }
 }
-
 // Update total price when travelers change
 document.getElementById("travelers").addEventListener("change", function() {
     const price = parseInt(document.getElementById("tourPrice").value);
@@ -662,7 +647,6 @@ document.getElementById("travelers").addEventListener("change", function() {
     const total = price * travelers;
     document.getElementById("totalPriceDisplay").textContent = `$${total}`;
 });
-
 // Handle form submission with loading state and notification
 document.getElementById("bookingForm").addEventListener("submit", function(e) {
     e.preventDefault();
@@ -705,7 +689,12 @@ document.getElementById("bookingForm").addEventListener("submit", function(e) {
             'Accept': 'application/json'
         }
     })
-    .then(response => response.json())
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        return response.json();
+    })
     .then(data => {
         if (data.ok) {
             // Show success notification instead of alert
@@ -728,12 +717,10 @@ document.getElementById("bookingForm").addEventListener("submit", function(e) {
         submitBtn.disabled = false;
     });
 });
-
 // Smooth scroll to tours section
 function scrollToTours() {
     document.getElementById("tours").scrollIntoView({ behavior: 'smooth' });
 }
-
 // Lazy loading for tour card background images
 document.addEventListener("DOMContentLoaded", function() {
     // Initialize language
@@ -754,7 +741,6 @@ document.addEventListener("DOMContentLoaded", function() {
     
     tourImages.forEach(img => imageObserver.observe(img));
 });
-
 // Notification system
 function showNotification(message, type = 'success') {
     const notification = document.getElementById('notification');
