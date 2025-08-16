@@ -36,11 +36,11 @@ header p {
     font-size: 1.2rem;
     opacity: 0.9;
 }
-/* Family Name Styling */
+/* Family Name Styling (now on right) */
 .family-name {
     position: absolute;
     top: 15px;
-    left: 20px;
+    right: 20px;
     font-family: 'Lucida Handwriting', cursive;
     font-size: 1.2rem;
     color: #FFD700;
@@ -48,11 +48,12 @@ header p {
     font-weight: bold;
     z-index: 10;
 }
-/* Menu Button and Dropdown */
+
+/* Menu Button and Dropdown (now on left) */
 .menu-container {
     position: absolute;
     top: 20px;
-    right: 20px;
+    left: 20px;
     z-index: 100;
 }
 .menu-button {
