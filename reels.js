@@ -3,12 +3,11 @@
  * Copyright (c) 2025 AlMa'ali group
  * All rights reserved.
 */
-
 // Reels data - in a real application, this would come from a database
 const reelsData = [
     {
         id: 1,
-        videoSrc: "https://sample-videos.com/video123/mp4/720/big_buck_bunny_720p_1mb.mp4",
+        videoSrc: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
         author: "Sarah Johnson",
         authorAvatar: "https://randomuser.me/api/portraits/women/44.jpg",
         description: "Amazing sunrise at Petra! The Treasury looks magical in the morning light. #Jordan #Petra #Travel",
@@ -21,7 +20,7 @@ const reelsData = [
     },
     {
         id: 2,
-        videoSrc: "https://sample-videos.com/video123/mp4/720/big_buck_bunny_720p_2mb.mp4",
+        videoSrc: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4",
         author: "Ahmed Hassan",
         authorAvatar: "https://randomuser.me/api/portraits/men/32.jpg",
         description: "Jeep safari in Wadi Rum! The desert landscape is out of this world. #WadiRum #Desert #Adventure",
@@ -34,7 +33,7 @@ const reelsData = [
     },
     {
         id: 3,
-        videoSrc: "https://sample-videos.com/video123/mp4/720/big_buck_bunny_720p_5mb.mp4",
+        videoSrc: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4",
         author: "Emma Wilson",
         authorAvatar: "https://randomuser.me/api/portraits/women/68.jpg",
         description: "Floating in the Dead Sea! The mud treatment was so relaxing. #DeadSea #Jordan #Relaxation",
@@ -46,7 +45,6 @@ const reelsData = [
         ]
     }
 ];
-
 // Translations for reels page
 const reelsTranslations = {
     en: {
@@ -220,17 +218,14 @@ const reelsTranslations = {
         "comment.placeholder": "Aggiungi un commento..."
     }
 };
-
 // DOM elements
 const reelsFeed = document.getElementById("reelsFeed");
 const shareModal = document.getElementById("shareModal");
 const closeBtn = document.querySelector(".close");
 const menuButton = document.getElementById("menuButton");
 const menuDropdown = document.getElementById("menuDropdown");
-
 // Current reel for sharing
 let currentReelId = null;
-
 // Initialize the page
 document.addEventListener("DOMContentLoaded", function() {
     // Initialize language
@@ -245,7 +240,6 @@ document.addEventListener("DOMContentLoaded", function() {
     // Set up share modal
     setupShareModal();
 });
-
 // Load reels from data
 function loadReels() {
     reelsFeed.innerHTML = "";
@@ -255,7 +249,6 @@ function loadReels() {
         reelsFeed.appendChild(reelElement);
     });
 }
-
 // Create a reel element
 function createReelElement(reel) {
     const reelCard = document.createElement("div");
@@ -263,7 +256,7 @@ function createReelElement(reel) {
     reelCard.dataset.id = reel.id;
     
     reelCard.innerHTML = `
-        <video class="reel-video" src="${reel.videoSrc}" loop muted playsinline></video>
+        <video class="reel-video" src="${reel.videoSrc}" loop muted playsinline controls></video>
         <div class="reel-content">
             <div class="reel-info">
                 <div class="reel-author">
@@ -307,7 +300,6 @@ function createReelElement(reel) {
     
     return reelCard;
 }
-
 // Set up event listeners for a reel
 function setupReelEventListeners(reelCard, reel) {
     const video = reelCard.querySelector(".reel-video");
@@ -359,7 +351,7 @@ function setupReelEventListeners(reelCard, reel) {
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                video.play();
+                video.play().catch(e => console.log("Autoplay prevented:", e));
             } else {
                 video.pause();
             }
@@ -368,7 +360,6 @@ function setupReelEventListeners(reelCard, reel) {
     
     observer.observe(reelCard);
 }
-
 // Toggle like status
 function toggleLike(reelId, likeBtn) {
     const reel = reelsData.find(r => r.id === reelId);
@@ -389,7 +380,6 @@ function toggleLike(reelId, likeBtn) {
         countElement.textContent = reel.likes;
     }
 }
-
 // Submit a comment
 function submitComment(reelId, commentText, reelCard) {
     if (!commentText.trim()) return;
@@ -421,7 +411,6 @@ function submitComment(reelId, commentText, reelCard) {
         commentsSection.scrollTop = commentsSection.scrollHeight;
     }
 }
-
 // Set up menu functionality
 function setupMenu() {
     // Toggle menu dropdown
@@ -456,7 +445,6 @@ function setupMenu() {
         });
     });
 }
-
 // Set up share modal
 function setupShareModal() {
     // Close modal
@@ -481,13 +469,11 @@ function setupShareModal() {
         });
     });
 }
-
 // Open share modal
 function openShareModal(reelId) {
     currentReelId = reelId;
     shareModal.style.display = "block";
 }
-
 // Share a reel
 function shareReel(reelId, platform) {
     const reel = reelsData.find(r => r.id === reelId);
@@ -528,7 +514,6 @@ function shareReel(reelId, platform) {
             break;
     }
 }
-
 // Initialize language for reels page
 function initializeReelsLanguage() {
     // Check if language is saved in localStorage
@@ -548,7 +533,6 @@ function initializeReelsLanguage() {
     // Default to English if no match
     changeReelsLanguage("en");
 }
-
 // Change language for reels page
 function changeReelsLanguage(lang) {
     // Save language preference to localStorage
@@ -575,13 +559,11 @@ function changeReelsLanguage(lang) {
     // Reload reels to update placeholders
     loadReels();
 }
-
 // Get translation for reels page
 function getTranslation(key) {
     const lang = localStorage.getItem("jotour-language") || "en";
     return reelsTranslations[lang] && reelsTranslations[lang][key] ? reelsTranslations[lang][key] : reelsTranslations["en"][key];
 }
-
 // Show notification
 function showNotification(message, type = 'success') {
     const notification = document.getElementById('notification');
