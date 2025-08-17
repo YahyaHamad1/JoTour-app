@@ -36,19 +36,6 @@ header p {
     font-size: 1.2rem;
     opacity: 0.9;
 }
-/* Family Name Styling (now on right) */
-.family-name {
-    position: absolute;
-    top: 15px;
-    right: 20px;
-    font-family: 'Lucida Handwriting', cursive;
-    font-size: 1.2rem;
-    color: #FFD700;
-    text-shadow: 0px 0px 5px rgba(255, 215, 0, 0.7);
-    font-weight: bold;
-    z-index: 10;
-}
-
 /* Menu Button and Dropdown (now on left) */
 .menu-container {
     position: absolute;
@@ -72,7 +59,7 @@ header p {
 .menu-dropdown {
     position: absolute;
     top: 100%;
-    right: 0;
+    left: 0; /* Changed from right: 0 to left: 0 */
     background: white;
     border-radius: 8px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
@@ -113,7 +100,7 @@ header p {
 .language-menu .language-options {
     position: absolute;
     top: 0;
-    left: 100%;
+    left: 100%; /* Changed from right: 100% to left: 100% */
     background: white;
     border-radius: 8px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
