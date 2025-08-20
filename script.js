@@ -873,17 +873,19 @@ function scrollToTours() {
 }
 // Toggle mute/unmute function
 function toggleMute() {
-    const video = document.getElementById('heroVideo');
+    const iframe = document.querySelector('.video-background iframe');
     const muteIcon = document.getElementById('muteIcon');
     
-    if (video.muted) {
-        video.muted = false;
+    // Since we can't directly control iframe audio due to cross-origin restrictions,
+    // we'll show a message to the user
+    if (muteIcon.classList.contains('fa-volume-mute')) {
         muteIcon.classList.remove('fa-volume-mute');
         muteIcon.classList.add('fa-volume-up');
+        showNotification('Click on the video to unmute sound', 'info');
     } else {
-        video.muted = true;
         muteIcon.classList.remove('fa-volume-up');
         muteIcon.classList.add('fa-volume-mute');
+        showNotification('Video muted', 'info');
     }
 }
 // Lazy loading for tour card background images
@@ -914,6 +916,8 @@ function showNotification(message, type = 'success') {
     
     if (type === 'error') {
         notification.classList.add('error');
+    } else if (type === 'info') {
+        notification.classList.add('info');
     }
     
     // Hide after 5 seconds
