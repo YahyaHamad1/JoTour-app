@@ -148,16 +148,16 @@ header p {
     z-index: -2;
 }
 
-.video-background iframe {
+.video-background video {
     position: absolute;
     top: 50%;
     left: 50%;
-    width: 100vw;
-    height: 56.25vw; /* 16:9 Aspect Ratio */
     min-width: 100%;
     min-height: 100%;
-    transform: translate(-50%, -50%);
-    pointer-events: none;
+    width: auto;
+    height: auto;
+    transform: translateX(-50%) translateY(-50%);
+    object-fit: cover;
 }
 
 .hero-overlay {
@@ -201,6 +201,33 @@ header p {
     background: #c0392b;
     transform: translateY(-3px);
     box-shadow: 0 6px 12px rgba(0,0,0,0.4);
+}
+
+/* Add a mute/unmute button */
+.video-controls {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    z-index: 2;
+}
+
+.mute-btn {
+    background: rgba(255, 255, 255, 0.3);
+    border: none;
+    color: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.mute-btn:hover {
+    background: rgba(255, 255, 255, 0.5);
 }
 /* Tours Section */
 .tours {
