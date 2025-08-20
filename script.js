@@ -69,7 +69,10 @@ const translations = {
         "booking.cash": "Cash on arrival",
         "booking.accept": "We accept USD, JOD, EUR as the way of payment. You will be given a receipt after payment.",
         "booking.complete": "Complete Booking",
-        "whatsapp.service": "24 hours customer service"
+        "whatsapp.service": "24 hours customer service",
+        "booking.full": "Reservations are Full on",
+        "booking.past": "Cannot select past dates",
+        "booking.reservations": "Reservations for this date"
     },
     es: {
         "header.title": "JoTour",
@@ -135,7 +138,10 @@ const translations = {
         "booking.cash": "Efectivo al llegar",
         "booking.accept": "Aceptamos USD, JOD, EUR como método de pago. Se le entregará un recibo después del pago.",
         "booking.complete": "Completar Reserva",
-        "whatsapp.service": "Servicio al cliente 24 horas"
+        "whatsapp.service": "Servicio al cliente 24 horas",
+        "booking.full": "Reservas completas en",
+        "booking.past": "No se pueden seleccionar fechas pasadas",
+        "booking.reservations": "Reservas para esta fecha"
     },
     fr: {
         "header.title": "JoTour",
@@ -201,7 +207,10 @@ const translations = {
         "booking.cash": "Espèces à l'arrivée",
         "booking.accept": "Nous acceptons USD, JOD, EUR comme moyen de paiement. Vous recevrez un reçu après le paiement.",
         "booking.complete": "Compléter la Réservation",
-        "whatsapp.service": "Service client 24h/24"
+        "whatsapp.service": "Service client 24h/24",
+        "booking.full": "Réservations complètes le",
+        "booking.past": "Impossible de sélectionner des dates passées",
+        "booking.reservations": "Réservations pour cette date"
     },
     de: {
         "header.title": "JoTour",
@@ -267,7 +276,10 @@ const translations = {
         "booking.cash": "Barzahlung bei Ankunft",
         "booking.accept": "Wir akzeptieren USD, JOD, EUR als Zahlungsmittel. Sie erhalten nach der Zahlung eine Quittung.",
         "booking.complete": "Buchung Abschließen",
-        "whatsapp.service": "24 Stunden Kundenservice"
+        "whatsapp.service": "24 Stunden Kundenservice",
+        "booking.full": "Reservierungen vollständig am",
+        "booking.past": "Vergangene Daten können nicht ausgewählt werden",
+        "booking.reservations": "Reservierungen für dieses Datum"
     },
     zh: {
         "header.title": "JoTour",
@@ -333,7 +345,10 @@ const translations = {
         "booking.cash": "抵达时现金支付",
         "booking.accept": "我们接受美元、约旦第纳尔、欧元作为支付方式。付款后您将收到收据。",
         "booking.complete": "完成预订",
-        "whatsapp.service": "24小时客户服务"
+        "whatsapp.service": "24小时客户服务",
+        "booking.full": "预订已满",
+        "booking.past": "无法选择过去的日期",
+        "booking.reservations": "此日期的预订"
     },
     ja: {
         "header.title": "JoTour",
@@ -399,7 +414,10 @@ const translations = {
         "booking.cash": "到着時現金払い",
         "booking.accept": "支払い方法としてUSD、JOD、EURを受け付けています。支払い後に領収書をお渡しします。",
         "booking.complete": "予約を完了",
-        "whatsapp.service": "24時間カスタマーサービス"
+        "whatsapp.service": "24時間カスタマーサービス",
+        "booking.full": "予約が満席です",
+        "booking.past": "過去の日付は選択できません",
+        "booking.reservations": "この日付の予約"
     },
     ru: {
         "header.title": "JoTour",
@@ -465,7 +483,10 @@ const translations = {
         "booking.cash": "Наличными по прибытии",
         "booking.accept": "Мы принимаем USD, JOD, EUR в качестве способа оплаты. Вы получите квитанцию после оплаты.",
         "booking.complete": "Завершить Бронирование",
-        "whatsapp.service": "Клиентская служба 24 часа"
+        "whatsapp.service": "Клиентская служба 24 часа",
+        "booking.full": "Бронирование полностью на",
+        "booking.past": "Невозможно выбрать прошлые даты",
+        "booking.reservations": "Бронирование на эту дату"
     },
     ar: {
         "header.title": "جوتور",
@@ -531,7 +552,10 @@ const translations = {
         "booking.cash": "الدفع نقدًا عند الوصول",
         "booking.accept": "نقبل الدولار الأمريكي والدينار الأردني واليورو كطريقة دفع. ستحصل على إيصال بعد الدفع.",
         "booking.complete": "إتمام الحجز",
-        "whatsapp.service": "خدمة العملاء على مدار 24 ساعة"
+        "whatsapp.service": "خدمة العملاء على مدار 24 ساعة",
+        "booking.full": "الحجوزات ممتلئة في",
+        "booking.past": "لا يمكن تحديد التواريخ الماضية",
+        "booking.reservations": "الحجوزات لهذا التاريخ"
     },
     pt: {
         "header.title": "JoTour",
@@ -597,7 +621,10 @@ const translations = {
         "booking.cash": "Dinheiro na chegada",
         "booking.accept": "Aceitamos USD, JOD, EUR como forma de pagamento. Você receberá um recibo após o pagamento.",
         "booking.complete": "Concluir Reserva",
-        "whatsapp.service": "Atendimento ao cliente 24 horas"
+        "whatsapp.service": "Atendimento ao cliente 24 horas",
+        "booking.full": "Reservas cheias em",
+        "booking.past": "Não é possível selecionar datas passadas",
+        "booking.reservations": "Reservas para esta data"
     },
     it: {
         "header.title": "JoTour",
@@ -663,19 +690,104 @@ const translations = {
         "booking.cash": "Contanti all'arrivo",
         "booking.accept": "Accettiamo USD, JOD, EUR come metodo di pagamento. Riceverai una ricevuta dopo il pagamento.",
         "booking.complete": "Completa Prenotazione",
-        "whatsapp.service": "Servizio clienti 24 ore su 24"
+        "whatsapp.service": "Servizio clienti 24 ore su 24",
+        "booking.full": "Prenotazioni complete al",
+        "booking.past": "Impossibile selezionare date passate",
+        "booking.reservations": "Prenotazioni per questa data"
     }
 };
+
+// Reservation System
+const MAX_RESERVATIONS_PER_DAY = 5;
+let reservations = {};
+
+// Initialize reservations from localStorage
+function initializeReservations() {
+    const savedReservations = localStorage.getItem('jotour-reservations');
+    if (savedReservations) {
+        reservations = JSON.parse(savedReservations);
+    }
+}
+
+// Save reservations to localStorage
+function saveReservations() {
+    localStorage.setItem('jotour-reservations', JSON.stringify(reservations));
+}
+
+// Get reservation count for a specific date
+function getReservationCount(date) {
+    return reservations[date] || 0;
+}
+
+// Check if date is in the past
+function isPastDate(date) {
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+    const selectedDate = new Date(date);
+    return selectedDate < today;
+}
+
+// Format date for display
+function formatDate(dateString) {
+    const options = { year: 'numeric', month: 'long', day: 'numeric' };
+    return new Date(dateString).toLocaleDateString(undefined, options);
+}
+
+// Update reservation status UI
+function updateReservationStatus() {
+    const dateInput = document.getElementById('tourDate');
+    const dateMessage = document.getElementById('dateMessage');
+    const reservationCount = document.getElementById('reservationCount');
+    const submitBtn = document.getElementById('submitBtn');
+    
+    if (!dateInput.value) {
+        dateMessage.textContent = '';
+        reservationCount.textContent = '';
+        submitBtn.disabled = false;
+        return;
+    }
+    
+    const selectedDate = dateInput.value;
+    const count = getReservationCount(selectedDate);
+    
+    // Update reservation count display
+    reservationCount.textContent = `${getTranslation('booking.reservations')}: ${count}/${MAX_RESERVATIONS_PER_DAY}`;
+    
+    // Check if date is in the past
+    if (isPastDate(selectedDate)) {
+        dateMessage.textContent = getTranslation('booking.past');
+        dateMessage.className = 'date-message error';
+        submitBtn.disabled = true;
+        return;
+    }
+    
+    // Check if reservations are full
+    if (count >= MAX_RESERVATIONS_PER_DAY) {
+        dateMessage.textContent = `${getTranslation('booking.full')} ${formatDate(selectedDate)}`;
+        dateMessage.className = 'date-message error';
+        submitBtn.disabled = true;
+        return;
+    }
+    
+    // Date is available
+    dateMessage.textContent = '';
+    dateMessage.className = 'date-message';
+    submitBtn.disabled = false;
+}
+
 // Modal functionality
 const modal = document.getElementById("bookingModal");
 const closeBtn = document.getElementsByClassName("close")[0];
+
 // Menu functionality
 const menuButton = document.getElementById("menuButton");
 const menuDropdown = document.getElementById("menuDropdown");
+
 // Toggle menu dropdown
 menuButton.addEventListener("click", function() {
     menuDropdown.classList.toggle("show");
 });
+
 // Close menu when clicking outside
 document.addEventListener("click", function(event) {
     if (!menuButton.contains(event.target) && !menuDropdown.contains(event.target)) {
@@ -684,6 +796,7 @@ document.addEventListener("click", function(event) {
         document.querySelector(".language-menu").classList.remove("active");
     }
 });
+
 // Home button functionality
 document.querySelector(".menu-home").addEventListener("click", function(e) {
     e.preventDefault();
@@ -693,12 +806,14 @@ document.querySelector(".menu-home").addEventListener("click", function(e) {
     });
     menuDropdown.classList.remove("show");
 });
+
 // Language menu click event
 document.querySelector(".menu-language").addEventListener("click", function(e) {
     e.preventDefault();
     e.stopPropagation(); // Prevent the menu from closing
     this.parentElement.classList.toggle("active");
 });
+
 // Language selection functionality
 document.querySelectorAll(".language-options a").forEach(langLink => {
     langLink.addEventListener("click", function(e) {
@@ -709,6 +824,7 @@ document.querySelectorAll(".language-options a").forEach(langLink => {
         document.querySelector(".language-menu").classList.remove("active");
     });
 });
+
 // Change language function
 function changeLanguage(lang) {
     // Save language preference to localStorage
@@ -735,6 +851,7 @@ function changeLanguage(lang) {
     // Show notification
     showNotification(`Language changed to ${getLanguageName(lang)}`);
 }
+
 // Get language name from code
 function getLanguageName(langCode) {
     const langNames = {
@@ -751,6 +868,7 @@ function getLanguageName(langCode) {
     };
     return langNames[langCode] || langCode;
 }
+
 // Initialize language from localStorage or browser language
 function initializeLanguage() {
     // Check if language is saved in localStorage
@@ -770,6 +888,7 @@ function initializeLanguage() {
     // Default to English if no match
     changeLanguage("en");
 }
+
 // Open booking modal
 function openBooking(tourName, tourPrice) {
     document.getElementById("tourName").value = tourName;
@@ -778,18 +897,28 @@ function openBooking(tourName, tourPrice) {
     document.getElementById("selectedPrice").textContent = `$${tourPrice}`;
     document.getElementById("totalPriceDisplay").textContent = `$${tourPrice}`;
     
+    // Set minimum date to today
+    const today = new Date().toISOString().split('T')[0];
+    document.getElementById("tourDate").min = today;
+    
+    // Reset reservation status
+    updateReservationStatus();
+    
     modal.style.display = "block";
 }
+
 // Close modal
 closeBtn.onclick = function() {
     modal.style.display = "none";
 }
+
 // Close modal when clicking outside
 window.onclick = function(event) {
     if (event.target == modal) {
         modal.style.display = "none";
     }
 }
+
 // Update total price when travelers change
 document.getElementById("travelers").addEventListener("change", function() {
     const price = parseInt(document.getElementById("tourPrice").value);
@@ -797,6 +926,7 @@ document.getElementById("travelers").addEventListener("change", function() {
     const total = price * travelers;
     document.getElementById("totalPriceDisplay").textContent = `$${total}`;
 });
+
 // Handle form submission with loading state and notification
 document.getElementById("bookingForm").addEventListener("submit", function(e) {
     e.preventDefault();
@@ -813,6 +943,19 @@ document.getElementById("bookingForm").addEventListener("submit", function(e) {
         travelers: formData.get('travelers'),
         message: formData.get('message')
     };
+    
+    // Check if date is valid
+    if (isPastDate(bookingData.tourDate)) {
+        showNotification(getTranslation('booking.past'), 'error');
+        return;
+    }
+    
+    // Check if reservations are full for this date
+    const reservationCount = getReservationCount(bookingData.tourDate);
+    if (reservationCount >= MAX_RESERVATIONS_PER_DAY) {
+        showNotification(`${getTranslation('booking.full')} ${formatDate(bookingData.tourDate)}`, 'error');
+        return;
+    }
     
     // Calculate total price
     const price = parseInt(bookingData.tourPrice);
@@ -847,7 +990,11 @@ document.getElementById("bookingForm").addEventListener("submit", function(e) {
     })
     .then(data => {
         if (data.ok) {
-            // Show success notification instead of alert
+            // Update reservation count
+            reservations[bookingData.tourDate] = reservationCount + 1;
+            saveReservations();
+            
+            // Show success notification
             showNotification(`Thank you ${bookingData.fullName}! Your booking for ${bookingData.tourName} has been received. Total: $${total}. Please pay in cash on arrival.`);
             modal.style.display = "none";
             this.reset();
@@ -865,16 +1012,23 @@ document.getElementById("bookingForm").addEventListener("submit", function(e) {
         // Reset button state
         submitBtn.textContent = originalText;
         submitBtn.disabled = false;
+        updateReservationStatus();
     });
 });
-// Smooth scroll to tours section
-function scrollToTours() {
-    document.getElementById("tours").scrollIntoView({ behavior: 'smooth' });
-}
-// Lazy loading for tour card background images
+
+// Add event listener for date input change
 document.addEventListener("DOMContentLoaded", function() {
     // Initialize language
     initializeLanguage();
+    
+    // Initialize reservations
+    initializeReservations();
+    
+    // Set up date input listener
+    const dateInput = document.getElementById("tourDate");
+    if (dateInput) {
+        dateInput.addEventListener("change", updateReservationStatus);
+    }
     
     const tourImages = document.querySelectorAll('.tour-image[data-background]');
     const imageObserver = new IntersectionObserver((entries, observer) => {
@@ -891,6 +1045,12 @@ document.addEventListener("DOMContentLoaded", function() {
     
     tourImages.forEach(img => imageObserver.observe(img));
 });
+
+// Smooth scroll to tours section
+function scrollToTours() {
+    document.getElementById("tours").scrollIntoView({ behavior: 'smooth' });
+}
+
 // Notification system
 function showNotification(message, type = 'success') {
     const notification = document.getElementById('notification');
