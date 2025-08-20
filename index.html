@@ -55,18 +55,21 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="video-background">
-            <iframe 
-                src="https://www.youtube.com/embed/UgkxVaF9nFFmLa4ZeUBcJkELMIpLrA02JcIa?autoplay=1&mute=0&loop=1&playlist=UgkxVaF9nFFmLa4ZeUBcJkELMIpLrA02JcIa&controls=0&showinfo=0&rel=0&modestbranding=1" 
-                frameborder="0" 
-                allow="autoplay; encrypted-media" 
-                allowfullscreen>
-            </iframe>
+            <video id="heroVideo" autoplay muted loop playsinline>
+                <source src="https://cdn.jumpshare.com/v/KAFCUQTZFF1nK6aVMS10/JoTour-Hero-Video.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
         </div>
         <div class="hero-overlay"></div>
         <div class="container">
             <h2 data-i18n="hero.title">Experience Jordan Like Never Before</h2>
             <p data-i18n="hero.subtitle">Authentic tours • Local guides • Unforgettable memories</p>
             <button class="cta-button" onclick="scrollToTours()" data-i18n="hero.explore">Explore Tours</button>
+        </div>
+        <div class="video-controls">
+            <button class="mute-btn" id="muteBtn" onclick="toggleMute()">
+                <i class="fas fa-volume-mute" id="muteIcon"></i>
+            </button>
         </div>
     </section>
     
