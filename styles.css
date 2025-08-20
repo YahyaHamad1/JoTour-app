@@ -337,6 +337,15 @@ header p {
     border-color: #3498db;
     box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
 }
+.date-message {
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+    color: #e74c3c;
+    font-weight: bold;
+}
+.date-message.error {
+    color: #e74c3c;
+}
 .price-summary {
     background: #f8f9fa;
     padding: 1rem;
@@ -350,6 +359,21 @@ header p {
 .price-summary span {
     font-weight: bold;
     color: #e74c3c;
+}
+.reservation-info {
+    background: #f0f8ff;
+    padding: 1rem;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+    border-left: 4px solid #3498db;
+}
+.reservation-info p {
+    margin-bottom: 0.5rem;
+}
+.reservation-count {
+    font-weight: bold;
+    color: #1a2a6c;
+    margin-top: 0.5rem;
 }
 .payment-info {
     background: #f0f8ff;
@@ -378,6 +402,10 @@ header p {
 }
 .submit-btn:hover {
     background: #229954;
+}
+.submit-btn:disabled {
+    background: #95a5a6;
+    cursor: not-allowed;
 }
 /* WhatsApp Button */
 .whatsapp-button {
@@ -453,6 +481,18 @@ footer {
     color: white;
     text-align: center;
     padding: 2rem 0;
+}
+.footer-links {
+    margin: 1rem 0;
+}
+.footer-links a {
+    color: white;
+    margin: 0 15px;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+.footer-links a:hover {
+    color: #fdbb2d;
 }
 .social-links {
     margin-top: 1rem;
