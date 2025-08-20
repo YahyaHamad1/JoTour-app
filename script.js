@@ -169,7 +169,7 @@ const translations = {
         "tours.mud": "Traitement à la boue",
         "tours.resort": "Station balnéaire",
         "tours.city_tour": "Tour de la ville",
-        "tours.citadel": "Visite de la Citadelle",
+        "tours.citadel": "Visite de la Citédelle",
         "tours.local_lunch": "Déjeuner local",
         "tours.guided_tour": "Visite guidée",
         "tours.entrance_fees": "Frais d'entrée",
@@ -871,23 +871,6 @@ document.getElementById("bookingForm").addEventListener("submit", function(e) {
 function scrollToTours() {
     document.getElementById("tours").scrollIntoView({ behavior: 'smooth' });
 }
-// Toggle mute/unmute function
-function toggleMute() {
-    const iframe = document.querySelector('.video-background iframe');
-    const muteIcon = document.getElementById('muteIcon');
-    
-    // Since we can't directly control iframe audio due to cross-origin restrictions,
-    // we'll show a message to the user
-    if (muteIcon.classList.contains('fa-volume-mute')) {
-        muteIcon.classList.remove('fa-volume-mute');
-        muteIcon.classList.add('fa-volume-up');
-        showNotification('Click on the video to unmute sound', 'info');
-    } else {
-        muteIcon.classList.remove('fa-volume-up');
-        muteIcon.classList.add('fa-volume-mute');
-        showNotification('Video muted', 'info');
-    }
-}
 // Lazy loading for tour card background images
 document.addEventListener("DOMContentLoaded", function() {
     // Initialize language
@@ -916,8 +899,6 @@ function showNotification(message, type = 'success') {
     
     if (type === 'error') {
         notification.classList.add('error');
-    } else if (type === 'info') {
-        notification.classList.add('info');
     }
     
     // Hide after 5 seconds
