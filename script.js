@@ -871,6 +871,21 @@ document.getElementById("bookingForm").addEventListener("submit", function(e) {
 function scrollToTours() {
     document.getElementById("tours").scrollIntoView({ behavior: 'smooth' });
 }
+// Toggle mute/unmute function
+function toggleMute() {
+    const video = document.getElementById('heroVideo');
+    const muteIcon = document.getElementById('muteIcon');
+    
+    if (video.muted) {
+        video.muted = false;
+        muteIcon.classList.remove('fa-volume-mute');
+        muteIcon.classList.add('fa-volume-up');
+    } else {
+        video.muted = true;
+        muteIcon.classList.remove('fa-volume-up');
+        muteIcon.classList.add('fa-volume-mute');
+    }
+}
 // Lazy loading for tour card background images
 document.addEventListener("DOMContentLoaded", function() {
     // Initialize language
