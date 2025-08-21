@@ -1111,90 +1111,6 @@ document.getElementById("travelers").addEventListener("change", function() {
     }
 });
 
-// Handle form submission with loading state and notification
-document.getElementById("bookingForm").addEventListener("submit", function(e) {
-    e.preventDefault();
-    
-    // Check date availability before proceeding
-    if (!checkDateAvailability()) {
-        return;
-    }
-    
-    // Get form data
-    const formData = new FormData(this);
-    const bookingData = {
-        tourName: formData.get('tourName'),
-        tourPrice: formData.get('tourPrice'),
-        fullName: formData.get('fullName'),
-        email: formData.get('email'),
-        phone: formData.get('phone'),
-        tourDate: formData.get('tourDate'),
-        travelers: formData.get('travelers'),
-        message: formData.get('message')
-    };
-    
-    // Calculate total price
-    const price = parseInt(bookingData.tourPrice);
-    const travelers = bookingData.travelers === "5+" ? 5 : parseInt(bookingData.travelers);
-    const total = price * travelers;
-    
-    // Set total price in hidden field
-    document.getElementById("totalPrice").value = total;
-    
-    // Update FormData with total price
-    formData.set('totalPrice', total);
-    
-    // Show loading state
-    const submitBtn = document.querySelector(".submit-btn");
-    const originalText = submitBtn.textContent;
-    submitBtn.textContent = "Processing...";
-    submitBtn.disabled = true;
-    
-    // Submit to Formspree
-    fetch(this.action, {
-        method: 'POST',
-        body: formData,
-        headers: {
-            'Accept': 'application/json'
-        }
-    })
-    .then(response => {
-        if (!response.ok) {
-            throw new Error('Network response was not ok');
-        }
-        return response.json();
-    })
-    .then(data => {
-        if (data.ok) {
-            // Update reservation count
-            updateReservationCount(bookingData.tourDate);
-            
-            // Show success notification instead of alert
-            showNotification(`Thank you ${bookingData.fullName}! Your booking for ${bookingData.tourName} has been received. Total: $${total}. Please pay in cash on arrival.`);
-            modal.style.display = "none";
-            this.reset();
-        } else {
-            // Show error notification
-            showNotification('Oops! There was a problem. Please try again.', 'error');
-        }
-    })
-    .catch(error => {
-        console.error('Error:', error);
-        // Show error notification
-        showNotification('Oops! There was a problem. Please try again.', 'error');
-    })
-    .finally(() => {
-        // Reset button state
-        submitBtn.textContent = originalText;
-        submitBtn.disabled = false;
-    });
-});
-
-// Smooth scroll to tours section
-function scrollToTours() {
-    document.getElementById("tours").scrollIntoView({ behavior: 'smooth' });
-}
-
 // Notification system
 function showNotification(message, type = 'success') {
     const notification = document.getElementById('notification');
@@ -1237,4 +1153,84 @@ document.addEventListener("DOMContentLoaded", function() {
     });
     
     tourImages.forEach(img => imageObserver.observe(img));
+    
+    // ADD THE FORM SUBMISSION HANDLER RIGHT HERE
+    // Handle form submission with loading state and notification
+    document.getElementById("bookingForm").addEventListener("submit", function(e) {
+        e.preventDefault();
+        
+        // Check date availability before proceeding
+        if (!checkDateAvailability()) {
+            return;
+        }
+        
+        // Get form data
+        const formData = new FormData(this);
+        const bookingData = {
+            tourName: formData.get('tourName'),
+            tourPrice: formData.get('tourPrice'),
+            fullName: formData.get('fullName'),
+            email: formData.get('userEmail'), // Use the pre-filled user email
+            phone: formData.get('phone'),
+            tourDate: formData.get('tourDate'),
+            travelers: formData.get('travelers'),
+            message: formData.get('message')
+        };
+        
+        // Calculate total price
+        const price = parseInt(bookingData.tourPrice);
+        const travelers = bookingData.travelers === "5+" ? 5 : parseInt(bookingData.travelers);
+        const total = price * travelers;
+        
+        // Set total price in hidden field
+        document.getElementById("totalPrice").value = total;
+        
+        // Update FormData with total price
+        formData.set('totalPrice', total);
+        
+        // Show loading state
+        const submitBtn = document.querySelector(".submit-btn");
+        const originalText = submitBtn.textContent;
+        submitBtn.textContent = "Processing...";
+        submitBtn.disabled = true;
+        
+        // Submit to Formspree
+        fetch(this.action, {
+            method: 'POST',
+            body: formData,
+            headers: {
+                'Accept': 'application/json'
+            }
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+        })
+        .then(data => {
+            if (data.ok) {
+                // Update reservation count
+                updateReservationCount(bookingData.tourDate);
+                
+                // Show success notification instead of alert
+                showNotification(`Thank you ${bookingData.fullName}! Your booking for ${bookingData.tourName} has been received. Total: $${total}. Please pay in cash on arrival.`);
+                modal.style.display = "none";
+                this.reset();
+            } else {
+                // Show error notification
+                showNotification('Oops! There was a problem. Please try again.', 'error');
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            // Show error notification
+            showNotification('Oops! There was a problem. Please try again.', 'error');
+        })
+        .finally(() => {
+            // Reset button state
+            submitBtn.textContent = originalText;
+            submitBtn.disabled = false;
+        });
+    });
 });
