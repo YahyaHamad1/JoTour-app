@@ -51,7 +51,7 @@
         <!-- Family Name (now on right) -->
         <div class="family-name">AlMa'ali group</div>
         <!-- Authentication Container -->
-<div id="authContainer" class="auth-container"></div>
+        <div id="authContainer" class="auth-container"></div>
     </header>
     <!-- Hero Section -->
     <section class="hero">
@@ -194,62 +194,62 @@
             <span class="close">&times;</span>
             <h2 data-i18n="booking.title">Book Your Tour</h2>
             <form action="https://formspree.io/f/xvgqdoyz" method="POST" id="bookingForm">
-    <input type="hidden" id="tourName" name="tourName">
-    <input type="hidden" id="tourPrice" name="tourPrice">
-    <input type="hidden" id="totalPrice" name="totalPrice">
-    <input type="hidden" name="_subject" value="New JoTour Booking!">
-    
-    <div class="form-group">
-        <label for="fullName" data-i18n="booking.name">Full Name</label>
-        <input type="text" id="fullName" name="fullName" required>
-    </div>
-    
-    <div class="form-group">
-        <label for="phone" data-i18n="booking.phone">Phone Number</label>
-        <input type="tel" id="phone" name="phone" required>
-    </div>
-    
-    <!-- EMAIL FIELD ADDED HERE -->
-    <div class="form-group">
-        <label for="userEmail" data-i18n="booking.email">Email</label>
-        <input type="email" id="userEmail" name="userEmail" value="" readonly>
-    </div>
-    
-    <div class="form-group">
-        <label for="tourDate" data-i18n="booking.date">Preferred Date</label>
-        <input type="date" id="tourDate" name="tourDate" required>
-        <div id="dateError" class="date-error" style="display: none;"></div>
-    </div>
-    
-    <div class="form-group">
-        <label for="travelers" data-i18n="booking.travelers">Number of Travelers</label>
-        <select id="travelers" name="travelers" required>
-            <option value="1" data-i18n="booking.person1">1 Person</option>
-            <option value="2" data-i18n="booking.person2">2 People</option>
-            <option value="3" data-i18n="booking.person3">3 People</option>
-            <option value="4" data-i18n="booking.person4">4 People</option>
-            <option value="5+" data-i18n="booking.person5+">5+ People</option>
-        </select>
-    </div>
-    
-    <div class="form-group">
-        <label for="message" data-i18n="booking.requests">Special Requests</label>
-        <textarea id="message" name="message" rows="3"></textarea>
-    </div>
-    
-    <div class="price-summary">
-        <p><span data-i18n="booking.tour">Tour</span>: <span id="selectedTour"></span></p>
-        <p><span data-i18n="booking.price">Price</span>: <span id="selectedPrice"></span></p>
-        <p><span data-i18n="booking.total">Total</span>: <span id="totalPriceDisplay"></span></p>
-    </div>
-    
-    <div class="payment-info">
-        <p><strong data-i18n="booking.payment">Payment Method</strong>: <span data-i18n="booking.cash">Cash on arrival</span></p>
-        <p><small data-i18n="booking.accept">We accept USD, JOD, EUR as the way of payment. You will be given a receipt after payment.</small></p>
-    </div>
-    
-    <button type="submit" class="submit-btn" data-i18n="booking.complete">Complete Booking</button>
-</form>
+                <input type="hidden" id="tourName" name="tourName">
+                <input type="hidden" id="tourPrice" name="tourPrice">
+                <input type="hidden" id="totalPrice" name="totalPrice">
+                <input type="hidden" name="_subject" value="New JoTour Booking!">
+                
+                <div class="form-group">
+                    <label for="fullName" data-i18n="booking.name">Full Name</label>
+                    <input type="text" id="fullName" name="fullName" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="phone" data-i18n="booking.phone">Phone Number</label>
+                    <input type="tel" id="phone" name="phone" required>
+                </div>
+                
+                <!-- EMAIL FIELD ADDED HERE -->
+                <div class="form-group">
+                    <label for="userEmail" data-i18n="booking.email">Email</label>
+                    <input type="email" id="userEmail" name="userEmail" value="" readonly>
+                </div>
+                
+                <div class="form-group">
+                    <label for="tourDate" data-i18n="booking.date">Preferred Date</label>
+                    <input type="date" id="tourDate" name="tourDate" required>
+                    <div id="dateError" class="date-error" style="display: none;"></div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="travelers" data-i18n="booking.travelers">Number of Travelers</label>
+                    <select id="travelers" name="travelers" required>
+                        <option value="1" data-i18n="booking.person1">1 Person</option>
+                        <option value="2" data-i18n="booking.person2">2 People</option>
+                        <option value="3" data-i18n="booking.person3">3 People</option>
+                        <option value="4" data-i18n="booking.person4">4 People</option>
+                        <option value="5+" data-i18n="booking.person5+">5+ People</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="message" data-i18n="booking.requests">Special Requests</label>
+                    <textarea id="message" name="message" rows="3"></textarea>
+                </div>
+                
+                <div class="price-summary">
+                    <p><span data-i18n="booking.tour">Tour</span>: <span id="selectedTour"></span></p>
+                    <p><span data-i18n="booking.price">Price</span>: <span id="selectedPrice"></span></p>
+                    <p><span data-i18n="booking.total">Total</span>: <span id="totalPriceDisplay"></span></p>
+                </div>
+                
+                <div class="payment-info">
+                    <p><strong data-i18n="booking.payment">Payment Method</strong>: <span data-i18n="booking.cash">Cash on arrival</span></p>
+                    <p><small data-i18n="booking.accept">We accept USD, JOD, EUR as the way of payment. You will be given a receipt after payment.</small></p>
+                </div>
+                
+                <button type="submit" class="submit-btn" data-i18n="booking.complete">Complete Booking</button>
+            </form>
         </div>
     </div>
     <!-- WhatsApp Button -->
@@ -271,53 +271,61 @@
         </div>
     </footer>
     <!-- Authentication Modal -->
-<div id="authModal" class="modal">
-    <div class="modal-content auth-modal-content">
-        <span class="close close-auth">&times;</span>
-        <div class="auth-tabs">
-            <button id="loginTab" class="auth-tab active">Login</button>
-            <button id="signupTab" class="auth-tab">Sign Up</button>
+    <div id="authModal" class="modal">
+        <div class="modal-content auth-modal-content">
+            <span class="close close-auth">&times;</span>
+            
+            <!-- Logo Section -->
+            <div class="auth-logo">
+                <i class="fas fa-mountain-sun"></i>
+                <h3>JoTour</h3>
+            </div>
+            
+            <div class="auth-tabs">
+                <button id="loginTab" class="auth-tab active">Login</button>
+                <button id="signupTab" class="auth-tab">Sign Up</button>
+            </div>
+            
+            <!-- Login Form -->
+            <form id="loginForm" class="auth-form">
+                <div class="form-group">
+                    <label for="loginEmail">Email</label>
+                    <input type="email" id="loginEmail" required>
+                </div>
+                <div class="form-group">
+                    <label for="loginPassword">Password</label>
+                    <input type="password" id="loginPassword" required>
+                </div>
+                <button type="submit" class="auth-submit-btn">Login</button>
+            </form>
+            
+            <!-- Signup Form -->
+            <form id="signupForm" class="auth-form" style="display: none;">
+                <div class="form-group">
+                    <label for="signupName">Full Name</label>
+                    <input type="text" id="signupName" required>
+                </div>
+                <div class="form-group">
+                    <label for="signupEmail">Email</label>
+                    <input type="email" id="signupEmail" required>
+                </div>
+                <div class="form-group">
+                    <label for="signupPassword">Password</label>
+                    <input type="password" id="signupPassword" required>
+                </div>
+                <div class="form-group">
+                    <label for="signupConfirmPassword">Confirm Password</label>
+                    <input type="password" id="signupConfirmPassword" required>
+                </div>
+                <button type="submit" class="auth-submit-btn">Create Account</button>
+            </form>
         </div>
-        
-        <!-- Login Form -->
-        <form id="loginForm" class="auth-form">
-            <div class="form-group">
-                <label for="loginEmail">Email</label>
-                <input type="email" id="loginEmail" required>
-            </div>
-            <div class="form-group">
-                <label for="loginPassword">Password</label>
-                <input type="password" id="loginPassword" required>
-            </div>
-            <button type="submit" class="auth-submit-btn">Login</button>
-        </form>
-        
-        <!-- Signup Form -->
-        <form id="signupForm" class="auth-form" style="display: none;">
-            <div class="form-group">
-                <label for="signupName">Full Name</label>
-                <input type="text" id="signupName" required>
-            </div>
-            <div class="form-group">
-                <label for="signupEmail">Email</label>
-                <input type="email" id="signupEmail" required>
-            </div>
-            <div class="form-group">
-                <label for="signupPassword">Password</label>
-                <input type="password" id="signupPassword" required>
-            </div>
-            <div class="form-group">
-                <label for="signupConfirmPassword">Confirm Password</label>
-                <input type="password" id="signupConfirmPassword" required>
-            </div>
-            <button type="submit" class="auth-submit-btn">Sign Up</button>
-        </form>
     </div>
-</div>
     <!-- Notification Container -->
     <div id="notification" class="notification"></div>
-    <!-- Add this line before your existing script.js -->
-<script src="auth.js"></script>
-<script src="script.js"></script>>
+    
+    <!-- Scripts in correct order -->
+    <script src="auth.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
