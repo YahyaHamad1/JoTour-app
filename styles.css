@@ -233,7 +233,7 @@ header p {
     margin-right: 0.5rem;
 }
 .book-btn {
-    background: #3498db;
+    background: #5B2C6F; /* Dark purple-blue color */
     color: white;
     border: none;
     padding: 0.8rem 1.5rem;
@@ -244,7 +244,7 @@ header p {
     transition: all 0.3s;
 }
 .book-btn:hover {
-    background: #2980b9;
+    background: #4A235A; /* Darker shade for hover */
 }
 /* Video Section */
 .videos {
