@@ -473,31 +473,26 @@ header p {
     max-height: 80vh;
     overflow-y: auto;
 }
-
 #adminPanel h2 {
     margin-top: 0;
     color: #1a2a6c;
     border-bottom: 1px solid #eee;
     padding-bottom: 10px;
 }
-
 #adminPanel h3 {
     margin-top: 15px;
     margin-bottom: 10px;
     color: #333;
 }
-
 #adminPanel ul {
     list-style-type: none;
     padding: 0;
     margin: 0;
 }
-
 #adminPanel li {
     padding: 8px;
     border-bottom: 1px solid #eee;
 }
-
 #adminPanel button {
     padding: 6px 12px;
     border: none;
@@ -505,13 +500,11 @@ header p {
     cursor: pointer;
     font-weight: bold;
 }
-
 #adminPanel .openDateBtn {
     background-color: #27ae60;
     color: white;
     float: right;
 }
-
 #adminPanel .closeDateBtn {
     background-color: #e74c3c;
     color: white;
@@ -535,67 +528,125 @@ footer {
 .social-links a:hover {
     color: #fdbb2d;
 }
-/* Responsive */
-@media (max-width: 768px) {
-    header h1 {
-        font-size: 2rem;
-    }
-    
-    .hero h2 {
-        font-size: 2rem;
-    }
-    
-    .hero p {
-        font-size: 1.2rem;
-    }
-    
-    .tour-grid,
-    .video-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .family-name {
-        font-family: 'Lucida Handwriting', cursive;
-        font-size: 1rem;
-        color: #FFD700;
-        text-shadow: 0px 0px 5px rgba(255, 215, 0, 0.7);
-        top: 10px;
-        right: 15px;
-    }
-    
-    .menu-container {
-        top: 15px;
-        left: 15px;
-    }
-    
-    .menu-dropdown {
-        left: -10px; /* Changed from right: -10px to left: -10px */
-        min-width: 180px;
-    }
-    
-    .language-menu .language-options {
-        left: 100%; /* Changed from right: 100% to left: 100% */
-        right: auto;
-    }
-    
-    .whatsapp-button {
-        bottom: 15px;
-        right: 15px;
-        padding: 8px 15px;
-    }
-    
-    .whatsapp-button i {
-        font-size: 24px;
-        margin-right: 8px;
-    }
-    
-    .whatsapp-text {
-        font-size: 12px;
-    }
-    
-    .modal-content {
-        width: 95%;
-        margin: 10% auto;
-        padding: 1.5rem;
-    }
+
+/* ====== AUTHENTICATION STYLES ====== */
+/* Authentication Styles */
+.auth-container {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    z-index: 100;
 }
+
+.user-menu {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: white;
+}
+
+.user-menu span {
+    font-weight: bold;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+}
+
+.auth-btn {
+    background: linear-gradient(135deg, #5B2C6F, #7D3C98);
+    border: none;
+    color: white;
+    padding: 8px 15px;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 0.9rem;
+    font-weight: 600;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.auth-btn:hover {
+    background: linear-gradient(135deg, #4A235A, #6B3488);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
+
+.auth-modal-content {
+    background: linear-gradient(135deg, #ffffff, #f8f9fa);
+    margin: 10% auto;
+    padding: 0;
+    border: none;
+    width: 90%;
+    max-width: 500px;
+    border-radius: 20px;
+    position: relative;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+    overflow: hidden;
+}
+
+.auth-tabs {
+    display: flex;
+    margin-bottom: 0;
+    background: linear-gradient(135deg, #5B2C6F, #7D3C98);
+}
+
+.auth-tab {
+    flex: 1;
+    padding: 18px 20px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: bold;
+    color: rgba(255, 255, 255, 0.7);
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.auth-tab:hover {
+    color: white;
+}
+
+.auth-tab.active {
+    color: white;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.auth-tab.active::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: #FFD700;
+}
+
+.auth-form {
+    display: block;
+    padding: 30px;
+}
+
+.auth-form .form-group {
+    margin-bottom: 20px;
+}
+
+.auth-form label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #333;
+    font-size: 0.95rem;
+}
+
+.auth-form input {
+    width: 100%;
+    padding: 12px 15px;
+    border: 2px solid #e1e5e9;
+    border-radius: 10px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    background: #f8f9fa;
+}
+
+.auth-form input:focus {
+    outline: none;
+    border-color: #
