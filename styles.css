@@ -447,6 +447,75 @@ header p {
 .notification.error {
     background: #e74c3c;
 }
+/* Date availability styles */
+.date-error {
+    color: #e74c3c;
+    font-size: 0.9rem;
+    margin-top: 5px;
+    padding: 5px;
+    background-color: #fadbd8;
+    border-radius: 4px;
+    border-left: 3px solid #e74c3c;
+}
+/* Admin panel styles */
+#adminPanel {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.3);
+    z-index: 2000;
+    max-width: 500px;
+    width: 90%;
+    max-height: 80vh;
+    overflow-y: auto;
+}
+
+#adminPanel h2 {
+    margin-top: 0;
+    color: #1a2a6c;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+}
+
+#adminPanel h3 {
+    margin-top: 15px;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+#adminPanel ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+#adminPanel li {
+    padding: 8px;
+    border-bottom: 1px solid #eee;
+}
+
+#adminPanel button {
+    padding: 6px 12px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+#adminPanel .openDateBtn {
+    background-color: #27ae60;
+    color: white;
+    float: right;
+}
+
+#adminPanel .closeDateBtn {
+    background-color: #e74c3c;
+    color: white;
+}
 /* Footer */
 footer {
     background: #1a2a6c;
