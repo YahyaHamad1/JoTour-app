@@ -1069,6 +1069,14 @@ function initializeLanguage() {
 
 // Open booking modal
 function openBooking(tourName, tourPrice) {
+    // Check if user is logged in
+    if (!isLoggedIn()) {
+        showNotification('Please login or create an account to book a tour', 'error');
+        showAuthModal();
+        return;
+    }
+    
+    // Proceed with booking if logged in
     document.getElementById("tourName").value = tourName;
     document.getElementById("tourPrice").value = tourPrice;
     document.getElementById("selectedTour").textContent = tourName;
