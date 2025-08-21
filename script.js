@@ -1076,7 +1076,11 @@ function openBooking(tourName, tourPrice) {
         return;
     }
     
-    // Proceed with booking if logged in
+    // Get current user and pre-fill email
+    const user = getCurrentUser();
+    document.getElementById("userEmail").value = user.email; // This sets the email field
+    
+    // Proceed with booking
     document.getElementById("tourName").value = tourName;
     document.getElementById("tourPrice").value = tourPrice;
     document.getElementById("selectedTour").textContent = tourName;
