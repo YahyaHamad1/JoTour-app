@@ -1,4 +1,4 @@
-/*
+ /*
  * JoTour - Discover Jordan
  * Copyright (c) 2025 AlMa'ali group
  * All rights reserved.
@@ -69,10 +69,7 @@ const translations = {
         "booking.cash": "Cash on arrival",
         "booking.accept": "We accept USD, JOD, EUR as the way of payment. You will be given a receipt after payment.",
         "booking.complete": "Complete Booking",
-        "whatsapp.service": "24 hours customer service",
-        "booking.full": "Reservations are Full on",
-        "booking.past": "Cannot select past dates",
-        "booking.reservations": "Reservations for this date"
+        "whatsapp.service": "24 hours customer service"
     },
     es: {
         "header.title": "JoTour",
@@ -138,10 +135,7 @@ const translations = {
         "booking.cash": "Efectivo al llegar",
         "booking.accept": "Aceptamos USD, JOD, EUR como método de pago. Se le entregará un recibo después del pago.",
         "booking.complete": "Completar Reserva",
-        "whatsapp.service": "Servicio al cliente 24 horas",
-        "booking.full": "Reservas completas en",
-        "booking.past": "No se pueden seleccionar fechas pasadas",
-        "booking.reservations": "Reservas para esta fecha"
+        "whatsapp.service": "Servicio al cliente 24 horas"
     },
     fr: {
         "header.title": "JoTour",
@@ -207,10 +201,7 @@ const translations = {
         "booking.cash": "Espèces à l'arrivée",
         "booking.accept": "Nous acceptons USD, JOD, EUR comme moyen de paiement. Vous recevrez un reçu après le paiement.",
         "booking.complete": "Compléter la Réservation",
-        "whatsapp.service": "Service client 24h/24",
-        "booking.full": "Réservations complètes le",
-        "booking.past": "Impossible de sélectionner des dates passées",
-        "booking.reservations": "Réservations pour cette date"
+        "whatsapp.service": "Service client 24h/24"
     },
     de: {
         "header.title": "JoTour",
@@ -276,10 +267,7 @@ const translations = {
         "booking.cash": "Barzahlung bei Ankunft",
         "booking.accept": "Wir akzeptieren USD, JOD, EUR als Zahlungsmittel. Sie erhalten nach der Zahlung eine Quittung.",
         "booking.complete": "Buchung Abschließen",
-        "whatsapp.service": "24 Stunden Kundenservice",
-        "booking.full": "Reservierungen vollständig am",
-        "booking.past": "Vergangene Daten können nicht ausgewählt werden",
-        "booking.reservations": "Reservierungen für dieses Datum"
+        "whatsapp.service": "24 Stunden Kundenservice"
     },
     zh: {
         "header.title": "JoTour",
@@ -345,10 +333,7 @@ const translations = {
         "booking.cash": "抵达时现金支付",
         "booking.accept": "我们接受美元、约旦第纳尔、欧元作为支付方式。付款后您将收到收据。",
         "booking.complete": "完成预订",
-        "whatsapp.service": "24小时客户服务",
-        "booking.full": "预订已满",
-        "booking.past": "无法选择过去的日期",
-        "booking.reservations": "此日期的预订"
+        "whatsapp.service": "24小时客户服务"
     },
     ja: {
         "header.title": "JoTour",
@@ -414,10 +399,7 @@ const translations = {
         "booking.cash": "到着時現金払い",
         "booking.accept": "支払い方法としてUSD、JOD、EURを受け付けています。支払い後に領収書をお渡しします。",
         "booking.complete": "予約を完了",
-        "whatsapp.service": "24時間カスタマーサービス",
-        "booking.full": "予約が満席です",
-        "booking.past": "過去の日付は選択できません",
-        "booking.reservations": "この日付の予約"
+        "whatsapp.service": "24時間カスタマーサービス"
     },
     ru: {
         "header.title": "JoTour",
@@ -483,10 +465,7 @@ const translations = {
         "booking.cash": "Наличными по прибытии",
         "booking.accept": "Мы принимаем USD, JOD, EUR в качестве способа оплаты. Вы получите квитанцию после оплаты.",
         "booking.complete": "Завершить Бронирование",
-        "whatsapp.service": "Клиентская служба 24 часа",
-        "booking.full": "Бронирование полностью на",
-        "booking.past": "Невозможно выбрать прошлые даты",
-        "booking.reservations": "Бронирование на эту дату"
+        "whatsapp.service": "Клиентская служба 24 часа"
     },
     ar: {
         "header.title": "جوتور",
@@ -552,6 +531,378 @@ const translations = {
         "booking.cash": "الدفع نقدًا عند الوصول",
         "booking.accept": "نقبل الدولار الأمريكي والدينار الأردني واليورو كطريقة دفع. ستحصل على إيصال بعد الدفع.",
         "booking.complete": "إتمام الحجز",
-        "whatsapp.service": "خدمة العملاء على مدار 24 ساعة",
-        "booking.full": "الحجوزات ممتلئة في",
-        "booking.past": "لا يمكن تحديد التواريخ الماضية
+        "whatsapp.service": "خدمة العملاء على مدار 24 ساعة"
+    },
+    pt: {
+        "header.title": "JoTour",
+        "header.subtitle": "Descubra os Tesouros Escondidos da Jordânia",
+        "menu.home": "Início",
+        "menu.language": "Idioma",
+        "menu.reels": "Reels",
+        "hero.title": "Experimente a Jordânia Como Nunca Antes",
+        "hero.subtitle": "Tours autênticos • Guias locais • Memórias inesquecíveis",
+        "hero.explore": "Explorar Tours",
+        "tours.title": "Tours Populares",
+        "tours.petra": "Petra Dia Inteiro",
+        "tours.petra_desc": "Cidade antiga esculpida em penhascos cor-de-rosa",
+        "tours.wadi": "Deserto de Wadi Rum",
+        "tours.wadi_desc": "Paisagem marciana com cultura beduína",
+        "tours.deadsea": "Relaxamento no Mar Morto",
+        "tours.deadsea_desc": "Flutue no mar mais salgado da Terra",
+        "tours.amman": "Tour da Cidade de Amã",
+        "tours.amman_desc": "Explore a vibrante capital da Jordânia",
+        "tours.jerash": "Cidade Antiga de Jerash",
+        "tours.jerash_desc": "Caminhe pelas ruínas romanas antigas",
+        "tours.ajloun": "Castelo de Ajloun",
+        "tours.ajloun_desc": "Descubra o histórico Castelo de Ajloun",
+        "tours.guide": "Guia particular",
+        "tours.pickup": "Busca no hotel",
+        "tours.lunch": "Almoço incluído",
+        "tours.jeep": "Safari de jipe",
+        "tours.stars": "Observação de estrelas",
+        "tours.dinner": "Jantar tradicional",
+        "tours.spa": "Acesso ao spa",
+        "tours.mud": "Tratamento de lama",
+        "tours.resort": "Resort à beira-mar",
+        "tours.city_tour": "Passeio pela cidade",
+        "tours.citadel": "Visita à Cidadela",
+        "tours.local_lunch": "Almoço local",
+        "tours.guided_tour": "Tour guiado",
+        "tours.entrance_fees": "Taxas de entrada",
+        "tours.transportation": "Transporte",
+        "tours.castle_tour": "Tour do castelo",
+        "tours.nature_walk": "Caminhada na natureza",
+        "tours.scenic_views": "Vistas cênicas",
+        "tours.book": "Reservar Agora",
+        "videos.title": "Experimente a Jordânia Através dos Nossos Olhos",
+        "videos.petra": "Mágica do Nascer do Sol em Petra",
+        "videos.wadi": "Aventura em Wadi Rum",
+        "videos.deadsea": "Relaxamento no Mar Morto",
+        "booking.title": "Reserve o Seu Tour",
+        "booking.name": "Nome Completo",
+        "booking.email": "E-mail",
+        "booking.phone": "Número de Telefone",
+        "booking.date": "Data Preferida",
+        "booking.travelers": "Número de Viajantes",
+        "booking.person1": "1 Pessoa",
+        "booking.person2": "2 Pessoas",
+        "booking.person3": "3 Pessoas",
+        "booking.person4": "4 Pessoas",
+        "booking.person5+": "5+ Pessoas",
+        "booking.requests": "Pedidos Especiais",
+        "booking.tour": "Tour",
+        "booking.price": "Preço",
+        "booking.total": "Total",
+        "booking.payment": "Método de Pagamento",
+        "booking.cash": "Dinheiro na chegada",
+        "booking.accept": "Aceitamos USD, JOD, EUR como forma de pagamento. Você receberá um recibo após o pagamento.",
+        "booking.complete": "Concluir Reserva",
+        "whatsapp.service": "Atendimento ao cliente 24 horas"
+    },
+    it: {
+        "header.title": "JoTour",
+        "header.subtitle": "Scopri i Tesori Nascosti della Giordania",
+        "menu.home": "Home",
+        "menu.language": "Lingua",
+        "menu.reels": "Reels",
+        "hero.title": "Sperimenta la Giordania Come Mai Prima",
+        "hero.subtitle": "Tour autentici • Guide locali • Ricordi indimenticabili",
+        "hero.explore": "Esplora Tour",
+        "tours.title": "Tour Popolari",
+        "tours.petra": "Petra Intera Giornata",
+        "tours.petra_desc": "Città antica scolpita nelle scogliere color rosa",
+        "tours.wadi": "Deserto di Wadi Rum",
+        "tours.wadi_desc": "Paesaggio simile a Marte con cultura beduina",
+        "tours.deadsea": "Relaxamento nel Mar Morto",
+        "tours.deadsea_desc": "Galleggia nel mare più salato della Terra",
+        "tours.amman": "Tour della Città di Amman",
+        "tours.amman_desc": "Esplora la vibrante capitale della Giordania",
+        "tours.jerash": "Città Antica di Jerash",
+        "tours.jerash_desc": "Cammina tra le antiche rovine romane",
+        "tours.ajloun": "Castello di Ajloun",
+        "tours.ajloun_desc": "Scopri il storico Castello di Ajloun",
+        "tours.guide": "Guida privata",
+        "tours.pickup": "Ritiro dall'hotel",
+        "tours.lunch": "Pranzo incluso",
+        "tours.jeep": "Safari in jeep",
+        "tours.stars": "Osservazione delle stelle",
+        "tours.dinner": "Cena tradizionale",
+        "tours.spa": "Accesso alla spa",
+        "tours.mud": "Trattamento di fango",
+        "tours.resort": "Resort sulla spiaggia",
+        "tours.city_tour": "Tour della città",
+        "tours.citadel": "Visita alla Cittadella",
+        "tours.local_lunch": "Pranzo locale",
+        "tours.guided_tour": "Tour guidato",
+        "tours.entrance_fees": "Biglietti d'ingresso",
+        "tours.transportation": "Trasporto",
+        "tours.castle_tour": "Tour del castello",
+        "tours.nature_walk": "Passeggiata nella natura",
+        "tours.scenic_views": "Viste panoramiche",
+        "tours.book": "Prenota Ora",
+        "videos.title": "Sperimenta la Giordania Attraverso i Nostri Occhi",
+        "videos.petra": "Magia dell'Alba a Petra",
+        "videos.wadi": "Avventura a Wadi Rum",
+        "videos.deadsea": "Relaxamento nel Mar Morto",
+        "booking.title": "Prenota il Tuo Tour",
+        "booking.name": "Nome Completo",
+        "booking.email": "Email",
+        "booking.phone": "Numero di Telefono",
+        "booking.date": "Data Preferita",
+        "booking.travelers": "Numero di Viaggiatori",
+        "booking.person1": "1 Persona",
+        "booking.person2": "2 Persone",
+        "booking.person3": "3 Persone",
+        "booking.person4": "4 Persone",
+        "booking.person5+": "5+ Persone",
+        "booking.requests": "Richieste Speciali",
+        "booking.tour": "Tour",
+        "booking.price": "Prezzo",
+        "booking.total": "Totale",
+        "booking.payment": "Metodo di Pagamento",
+        "booking.cash": "Contanti all'arrivo",
+        "booking.accept": "Accettiamo USD, JOD, EUR come metodo di pagamento. Riceverai una ricevuta dopo il pagamento.",
+        "booking.complete": "Completa Prenotazione",
+        "whatsapp.service": "Servizio clienti 24 ore su 24"
+    }
+};
+// Modal functionality
+const modal = document.getElementById("bookingModal");
+const closeBtn = document.getElementsByClassName("close")[0];
+// Menu functionality
+const menuButton = document.getElementById("menuButton");
+const menuDropdown = document.getElementById("menuDropdown");
+// Toggle menu dropdown
+menuButton.addEventListener("click", function() {
+    menuDropdown.classList.toggle("show");
+});
+// Close menu when clicking outside
+document.addEventListener("click", function(event) {
+    if (!menuButton.contains(event.target) && !menuDropdown.contains(event.target)) {
+        menuDropdown.classList.remove("show");
+        // Also close the language submenu
+        document.querySelector(".language-menu").classList.remove("active");
+    }
+});
+// Home button functionality
+document.querySelector(".menu-home").addEventListener("click", function(e) {
+    e.preventDefault();
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+    menuDropdown.classList.remove("show");
+});
+// Language menu click event
+document.querySelector(".menu-language").addEventListener("click", function(e) {
+    e.preventDefault();
+    e.stopPropagation(); // Prevent the menu from closing
+    this.parentElement.classList.toggle("active");
+});
+// Language selection functionality
+document.querySelectorAll(".language-options a").forEach(langLink => {
+    langLink.addEventListener("click", function(e) {
+        e.preventDefault();
+        const selectedLang = this.getAttribute("data-lang");
+        changeLanguage(selectedLang);
+        menuDropdown.classList.remove("show");
+        document.querySelector(".language-menu").classList.remove("active");
+    });
+});
+// Change language function
+function changeLanguage(lang) {
+    // Save language preference to localStorage
+    localStorage.setItem("jotour-language", lang);
+    
+    // Update HTML lang attribute
+    document.documentElement.lang = lang;
+    
+    // Update all translatable elements
+    document.querySelectorAll("[data-i18n]").forEach(element => {
+        const key = element.getAttribute("data-i18n");
+        if (translations[lang] && translations[lang][key]) {
+            element.textContent = translations[lang][key];
+        }
+    });
+    
+    // For RTL languages like Arabic
+    if (lang === "ar") {
+        document.body.dir = "rtl";
+    } else {
+        document.body.dir = "ltr";
+    }
+    
+    // Show notification
+    showNotification(`Language changed to ${getLanguageName(lang)}`);
+}
+// Get language name from code
+function getLanguageName(langCode) {
+    const langNames = {
+        en: "English",
+        es: "Español",
+        fr: "Français",
+        de: "Deutsch",
+        zh: "中文",
+        ja: "日本語",
+        ru: "Русский",
+        ar: "العربية",
+        pt: "Português",
+        it: "Italiano"
+    };
+    return langNames[langCode] || langCode;
+}
+// Initialize language from localStorage or browser language
+function initializeLanguage() {
+    // Check if language is saved in localStorage
+    const savedLang = localStorage.getItem("jotour-language");
+    if (savedLang && translations[savedLang]) {
+        changeLanguage(savedLang);
+        return;
+    }
+    
+    // Otherwise, try to detect browser language
+    const browserLang = navigator.language.split("-")[0];
+    if (translations[browserLang]) {
+        changeLanguage(browserLang);
+        return;
+    }
+    
+    // Default to English if no match
+    changeLanguage("en");
+}
+// Open booking modal
+function openBooking(tourName, tourPrice) {
+    document.getElementById("tourName").value = tourName;
+    document.getElementById("tourPrice").value = tourPrice;
+    document.getElementById("selectedTour").textContent = tourName;
+    document.getElementById("selectedPrice").textContent = `$${tourPrice}`;
+    document.getElementById("totalPriceDisplay").textContent = `$${tourPrice}`;
+    
+    modal.style.display = "block";
+}
+// Close modal
+closeBtn.onclick = function() {
+    modal.style.display = "none";
+}
+// Close modal when clicking outside
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+// Update total price when travelers change
+document.getElementById("travelers").addEventListener("change", function() {
+    const price = parseInt(document.getElementById("tourPrice").value);
+    const travelers = this.value === "5+" ? 5 : parseInt(this.value);
+    const total = price * travelers;
+    document.getElementById("totalPriceDisplay").textContent = `$${total}`;
+});
+// Handle form submission with loading state and notification
+document.getElementById("bookingForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+    
+    // Get form data
+    const formData = new FormData(this);
+    const bookingData = {
+        tourName: formData.get('tourName'),
+        tourPrice: formData.get('tourPrice'),
+        fullName: formData.get('fullName'),
+        email: formData.get('email'),
+        phone: formData.get('phone'),
+        tourDate: formData.get('tourDate'),
+        travelers: formData.get('travelers'),
+        message: formData.get('message')
+    };
+    
+    // Calculate total price
+    const price = parseInt(bookingData.tourPrice);
+    const travelers = bookingData.travelers === "5+" ? 5 : parseInt(bookingData.travelers);
+    const total = price * travelers;
+    
+    // Set total price in hidden field
+    document.getElementById("totalPrice").value = total;
+    
+    // Update FormData with total price
+    formData.set('totalPrice', total);
+    
+    // Show loading state
+    const submitBtn = document.querySelector(".submit-btn");
+    const originalText = submitBtn.textContent;
+    submitBtn.textContent = "Processing...";
+    submitBtn.disabled = true;
+    
+    // Submit to Formspree
+    fetch(this.action, {
+        method: 'POST',
+        body: formData,
+        headers: {
+            'Accept': 'application/json'
+        }
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        return response.json();
+    })
+    .then(data => {
+        if (data.ok) {
+            // Show success notification instead of alert
+            showNotification(`Thank you ${bookingData.fullName}! Your booking for ${bookingData.tourName} has been received. Total: $${total}. Please pay in cash on arrival.`);
+            modal.style.display = "none";
+            this.reset();
+        } else {
+            // Show error notification
+            showNotification('Oops! There was a problem. Please try again.', 'error');
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        // Show error notification
+        showNotification('Oops! There was a problem. Please try again.', 'error');
+    })
+    .finally(() => {
+        // Reset button state
+        submitBtn.textContent = originalText;
+        submitBtn.disabled = false;
+    });
+});
+// Smooth scroll to tours section
+function scrollToTours() {
+    document.getElementById("tours").scrollIntoView({ behavior: 'smooth' });
+}
+// Lazy loading for tour card background images
+document.addEventListener("DOMContentLoaded", function() {
+    // Initialize language
+    initializeLanguage();
+    
+    const tourImages = document.querySelectorAll('.tour-image[data-background]');
+    const imageObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const img = entry.target;
+                const bgUrl = img.getAttribute('data-background');
+                img.style.backgroundImage = `url('${bgUrl}')`;
+                img.removeAttribute('data-background');
+                imageObserver.unobserve(img);
+            }
+        });
+    });
+    
+    tourImages.forEach(img => imageObserver.observe(img));
+});
+// Notification system
+function showNotification(message, type = 'success') {
+    const notification = document.getElementById('notification');
+    notification.textContent = message;
+    notification.className = 'notification show';
+    
+    if (type === 'error') {
+        notification.classList.add('error');
+    }
+    
+    // Hide after 5 seconds
+    setTimeout(() => {
+        notification.classList.remove('show');
+    }, 5000);
+}
