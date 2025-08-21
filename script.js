@@ -1096,6 +1096,11 @@ document.getElementById("travelers").addEventListener("change", function() {
     const travelers = this.value === "5+" ? 5 : parseInt(this.value);
     const total = price * travelers;
     document.getElementById("totalPriceDisplay").textContent = `$${total}`;
+    
+    // Show WhatsApp notification for 5+ travelers
+    if (this.value === "5+") {
+        showNotification("If your reservation is for 5 or more people please contact us via WhatsApp.");
+    }
 });
 
 // Handle form submission with loading state and notification
