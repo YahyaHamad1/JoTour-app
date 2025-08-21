@@ -269,6 +269,50 @@
             </div>
         </div>
     </footer>
+    <!-- Authentication Modal -->
+<div id="authModal" class="modal">
+    <div class="modal-content auth-modal-content">
+        <span class="close close-auth">&times;</span>
+        <div class="auth-tabs">
+            <button id="loginTab" class="auth-tab active">Login</button>
+            <button id="signupTab" class="auth-tab">Sign Up</button>
+        </div>
+        
+        <!-- Login Form -->
+        <form id="loginForm" class="auth-form">
+            <div class="form-group">
+                <label for="loginEmail">Email</label>
+                <input type="email" id="loginEmail" required>
+            </div>
+            <div class="form-group">
+                <label for="loginPassword">Password</label>
+                <input type="password" id="loginPassword" required>
+            </div>
+            <button type="submit" class="auth-submit-btn">Login</button>
+        </form>
+        
+        <!-- Signup Form -->
+        <form id="signupForm" class="auth-form" style="display: none;">
+            <div class="form-group">
+                <label for="signupName">Full Name</label>
+                <input type="text" id="signupName" required>
+            </div>
+            <div class="form-group">
+                <label for="signupEmail">Email</label>
+                <input type="email" id="signupEmail" required>
+            </div>
+            <div class="form-group">
+                <label for="signupPassword">Password</label>
+                <input type="password" id="signupPassword" required>
+            </div>
+            <div class="form-group">
+                <label for="signupConfirmPassword">Confirm Password</label>
+                <input type="password" id="signupConfirmPassword" required>
+            </div>
+            <button type="submit" class="auth-submit-btn">Sign Up</button>
+        </form>
+    </div>
+</div>
     <!-- Notification Container -->
     <div id="notification" class="notification"></div>
     <script src="script.js"></script>
