@@ -1,8 +1,294 @@
- /*
+/*
  * JoTour - Discover Jordan
  * Copyright (c) 2025 AlMa'ali group
  * All rights reserved.
 */
+
+// Date availability management
+const MAX_RESERVATIONS_PER_DAY = 5;
+let closedDates = [];
+let reservationCounts = {};
+
+// Initialize date availability system
+function initializeDateAvailability() {
+    // Load saved data from localStorage
+    const savedClosedDates = localStorage.getItem('jotour-closed-dates');
+    const savedReservationCounts = localStorage.getItem('jotour-reservation-counts');
+    
+    if (savedClosedDates) {
+        closedDates = JSON.parse(savedClosedDates);
+    }
+    
+    if (savedReservationCounts) {
+        reservationCounts = JSON.parse(savedReservationCounts);
+    }
+    
+    // Set up date input validation
+    const dateInput = document.getElementById('tourDate');
+    if (dateInput) {
+        // Set minimum date to today
+        const today = new Date();
+        const tomorrow = new Date(today);
+        tomorrow.setDate(tomorrow.getDate() + 1);
+        dateInput.min = formatDateForInput(tomorrow);
+        
+        // Add event listener for date changes
+        dateInput.addEventListener('change', checkDateAvailability);
+        
+        // Check availability on initial load if date is pre-selected
+        if (dateInput.value) {
+            checkDateAvailability();
+        }
+    }
+    
+    // Auto-close previous day at midnight
+    checkForDayChange();
+}
+
+// Format date as YYYY-MM-DD for input elements
+function formatDateForInput(date) {
+    const year = date.getFullYear();
+    const month = String(date.getMonth() + 1).padStart(2, '0');
+    const day = String(date.getDate()).padStart(2, '0');
+    return `${year}-${month}-${day}`;
+}
+
+// Check if we've crossed into a new day and auto-close the previous day
+function checkForDayChange() {
+    const lastCheckedDate = localStorage.getItem('jotour-last-checked-date');
+    const today = formatDateForInput(new Date());
+    
+    if (lastCheckedDate !== today) {
+        // We've entered a new day, close the previous day
+        if (lastCheckedDate) {
+            closeDate(lastCheckedDate);
+        }
+        localStorage.setItem('jotour-last-checked-date', today);
+    }
+    
+    // Check again in 10 minutes
+    setTimeout(checkForDayChange, 600000);
+}
+
+// Close a specific date
+function closeDate(dateString) {
+    if (!closedDates.includes(dateString)) {
+        closedDates.push(dateString);
+        localStorage.setItem('jotour-closed-dates', JSON.stringify(closedDates));
+    }
+}
+
+// Check if a date is available for booking
+function checkDateAvailability() {
+    const dateInput = document.getElementById('tourDate');
+    const dateError = document.getElementById('dateError');
+    const selectedDate = dateInput.value;
+    
+    if (!selectedDate) {
+        dateError.style.display = 'none';
+        return true;
+    }
+    
+    // Check if date is in the past
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+    const selected = new Date(selectedDate);
+    
+    if (selected < today) {
+        dateError.textContent = "This date has passed. Please select a future date.";
+        dateError.style.display = 'block';
+        return false;
+    }
+    
+    // Check if date is manually closed
+    if (closedDates.includes(selectedDate)) {
+        dateError.textContent = `Reservations are Full on ${formatDateForDisplay(selectedDate)}`;
+        dateError.style.display = 'block';
+        return false;
+    }
+    
+    // Check if date has reached maximum reservations
+    const reservationCount = reservationCounts[selectedDate] || 0;
+    if (reservationCount >= MAX_RESERVATIONS_PER_DAY) {
+        dateError.textContent = `Reservations are Full on ${formatDateForDisplay(selectedDate)}`;
+        dateError.style.display = 'block';
+        return false;
+    }
+    
+    // Date is available
+    dateError.style.display = 'none';
+    return true;
+}
+
+// Format date for display (MM/DD/YYYY)
+function formatDateForDisplay(dateString) {
+    const date = new Date(dateString);
+    const month = String(date.getMonth() + 1).padStart(2, '0');
+    const day = String(date.getDate()).padStart(2, '0');
+    const year = date.getFullYear();
+    return `${month}/${day}/${year}`;
+}
+
+// Update reservation count when a booking is submitted
+function updateReservationCount(dateString) {
+    if (!reservationCounts[dateString]) {
+        reservationCounts[dateString] = 0;
+    }
+    
+    reservationCounts[dateString]++;
+    localStorage.setItem('jotour-reservation-counts', JSON.stringify(reservationCounts));
+    
+    // Check if we've reached maximum reservations
+    if (reservationCounts[dateString] >= MAX_RESERVATIONS_PER_DAY) {
+        closeDate(dateString);
+    }
+}
+
+// Admin functionality to close dates
+function setupAdminPanel() {
+    // Create admin button (hidden by default)
+    const adminButton = document.createElement('button');
+    adminButton.textContent = 'Admin Panel';
+    adminButton.style.position = 'fixed';
+    adminButton.style.bottom = '80px';
+    adminButton.style.right = '20px';
+    adminButton.style.zIndex = '1000';
+    adminButton.style.display = 'none'; // Hidden by default
+    adminButton.style.padding = '10px 15px';
+    adminButton.style.backgroundColor = '#333';
+    adminButton.style.color = 'white';
+    adminButton.style.border = 'none';
+    adminButton.style.borderRadius = '5px';
+    adminButton.style.cursor = 'pointer';
+    document.body.appendChild(adminButton);
+    
+    // Check if admin is logged in
+    const adminLoggedIn = localStorage.getItem('jotour-admin-logged-in') === 'true';
+    if (adminLoggedIn) {
+        adminButton.style.display = 'block';
+    }
+    
+    // Admin button click handler
+    adminButton.addEventListener('click', function() {
+        showAdminPanel();
+    });
+    
+    // Add keyboard shortcut to show admin login (Ctrl+Shift+A)
+    document.addEventListener('keydown', function(e) {
+        if (e.ctrlKey && e.shiftKey && e.key === 'A') {
+            showAdminLogin();
+        }
+    });
+}
+
+// Show admin login dialog
+function showAdminLogin() {
+    const password = prompt('Enter admin password:');
+    if (password === 'jotour-admin-2025') { // Replace with a secure password
+        localStorage.setItem('jotour-admin-logged-in', 'true');
+        document.querySelector('button[style*="bottom: 80px"]').style.display = 'block';
+        showAdminPanel();
+    } else if (password !== null) {
+        alert('Incorrect password');
+    }
+}
+
+// Show admin panel
+function showAdminPanel() {
+    const adminPanel = document.createElement('div');
+    adminPanel.style.position = 'fixed';
+    adminPanel.style.top = '50%';
+    adminPanel.style.left = '50%';
+    adminPanel.style.transform = 'translate(-50%, -50%)';
+    adminPanel.style.backgroundColor = 'white';
+    adminPanel.style.padding = '20px';
+    adminPanel.style.borderRadius = '10px';
+    adminPanel.style.boxShadow = '0 0 20px rgba(0,0,0,0.3)';
+    adminPanel.style.zIndex = '2000';
+    adminPanel.style.maxWidth = '500px';
+    adminPanel.style.width = '90%';
+    adminPanel.style.maxHeight = '80vh';
+    adminPanel.style.overflowY = 'auto';
+    
+    let panelHTML = `
+        <h2>Admin Panel - Date Management</h2>
+        <p>Close specific dates to prevent new reservations</p>
+        <div style="margin-bottom: 15px;">
+            <label for="adminDate" style="display: block; margin-bottom: 5px;">Select Date to Close:</label>
+            <input type="date" id="adminDate" style="width: 100%; padding: 8px; margin-bottom: 10px;">
+            <button id="closeDateBtn" style="padding: 8px 15px; background: #e74c3c; color: white; border: none; border-radius: 5px; cursor: pointer;">Close Date</button>
+        </div>
+        <div style="margin-bottom: 15px;">
+            <h3>Closed Dates:</h3>
+            <ul id="closedDatesList" style="max-height: 150px; overflow-y: auto; padding: 0; list-style-type: none;">
+    `;
+    
+    // Add closed dates to list
+    closedDates.forEach(date => {
+        panelHTML += `<li style="padding: 5px; border-bottom: 1px solid #eee;">
+            ${formatDateForDisplay(date)}
+            <button class="openDateBtn" data-date="${date}" style="float: right; padding: 3px 8px; background: #27ae60; color: white; border: none; border-radius: 3px; cursor: pointer;">Open</button>
+        </li>`;
+    });
+    
+    panelHTML += `
+            </ul>
+        </div>
+        <div style="margin-bottom: 15px;">
+            <h3>Reservation Counts:</h3>
+            <ul id="reservationCountsList" style="max-height: 150px; overflow-y: auto; padding: 0; list-style-type: none;">
+    `;
+    
+    // Add reservation counts
+    Object.keys(reservationCounts).forEach(date => {
+        panelHTML += `<li style="padding: 5px; border-bottom: 1px solid #eee;">
+            ${formatDateForDisplay(date)}: ${reservationCounts[date]} reservations
+        </li>`;
+    });
+    
+    panelHTML += `
+            </ul>
+        </div>
+        <button id="closeAdminPanel" style="padding: 8px 15px; background: #333; color: white; border: none; border-radius: 5px; cursor: pointer; float: right;">Close Panel</button>
+        <div style="clear: both;"></div>
+    `;
+    
+    adminPanel.innerHTML = panelHTML;
+    document.body.appendChild(adminPanel);
+    
+    // Set up event listeners
+    document.getElementById('closeDateBtn').addEventListener('click', function() {
+        const dateInput = document.getElementById('adminDate');
+        if (dateInput.value) {
+            closeDate(dateInput.value);
+            alert(`Date ${formatDateForDisplay(dateInput.value)} has been closed.`);
+            adminPanel.remove();
+            showAdminPanel(); // Refresh the panel
+        } else {
+            alert('Please select a date');
+        }
+    });
+    
+    // Open date buttons
+    document.querySelectorAll('.openDateBtn').forEach(button => {
+        button.addEventListener('click', function() {
+            const date = this.getAttribute('data-date');
+            const index = closedDates.indexOf(date);
+            if (index > -1) {
+                closedDates.splice(index, 1);
+                localStorage.setItem('jotour-closed-dates', JSON.stringify(closedDates));
+                alert(`Date ${formatDateForDisplay(date)} has been opened.`);
+                adminPanel.remove();
+                showAdminPanel(); // Refresh the panel
+            }
+        });
+    });
+    
+    document.getElementById('closeAdminPanel').addEventListener('click', function() {
+        adminPanel.remove();
+    });
+}
+
 // Translations for 10 languages
 const translations = {
     en: {
@@ -509,7 +795,7 @@ const translations = {
         "tours.scenic_views": "مناظر طبيعية خلابة",
         "tours.book": "احجز الآن",
         "videos.title": "اختبر الأردن من خلال أعيننا",
-        "videos.petra": "سحر شروق الشمس في البتراء",
+        "videos.petra": "سحر شروق الشمس في البترا",
         "videos.wadi": "مغامرة وادي رم",
         "videos.deadsea": "الاسترخاء في البحر الميت",
         "booking.title": "احجز جولتك",
@@ -666,16 +952,20 @@ const translations = {
         "whatsapp.service": "Servizio clienti 24 ore su 24"
     }
 };
+
 // Modal functionality
 const modal = document.getElementById("bookingModal");
 const closeBtn = document.getElementsByClassName("close")[0];
+
 // Menu functionality
 const menuButton = document.getElementById("menuButton");
 const menuDropdown = document.getElementById("menuDropdown");
+
 // Toggle menu dropdown
 menuButton.addEventListener("click", function() {
     menuDropdown.classList.toggle("show");
 });
+
 // Close menu when clicking outside
 document.addEventListener("click", function(event) {
     if (!menuButton.contains(event.target) && !menuDropdown.contains(event.target)) {
@@ -684,6 +974,7 @@ document.addEventListener("click", function(event) {
         document.querySelector(".language-menu").classList.remove("active");
     }
 });
+
 // Home button functionality
 document.querySelector(".menu-home").addEventListener("click", function(e) {
     e.preventDefault();
@@ -693,12 +984,14 @@ document.querySelector(".menu-home").addEventListener("click", function(e) {
     });
     menuDropdown.classList.remove("show");
 });
+
 // Language menu click event
 document.querySelector(".menu-language").addEventListener("click", function(e) {
     e.preventDefault();
     e.stopPropagation(); // Prevent the menu from closing
     this.parentElement.classList.toggle("active");
 });
+
 // Language selection functionality
 document.querySelectorAll(".language-options a").forEach(langLink => {
     langLink.addEventListener("click", function(e) {
@@ -709,6 +1002,7 @@ document.querySelectorAll(".language-options a").forEach(langLink => {
         document.querySelector(".language-menu").classList.remove("active");
     });
 });
+
 // Change language function
 function changeLanguage(lang) {
     // Save language preference to localStorage
@@ -735,6 +1029,7 @@ function changeLanguage(lang) {
     // Show notification
     showNotification(`Language changed to ${getLanguageName(lang)}`);
 }
+
 // Get language name from code
 function getLanguageName(langCode) {
     const langNames = {
@@ -751,6 +1046,7 @@ function getLanguageName(langCode) {
     };
     return langNames[langCode] || langCode;
 }
+
 // Initialize language from localStorage or browser language
 function initializeLanguage() {
     // Check if language is saved in localStorage
@@ -770,6 +1066,7 @@ function initializeLanguage() {
     // Default to English if no match
     changeLanguage("en");
 }
+
 // Open booking modal
 function openBooking(tourName, tourPrice) {
     document.getElementById("tourName").value = tourName;
@@ -780,16 +1077,19 @@ function openBooking(tourName, tourPrice) {
     
     modal.style.display = "block";
 }
+
 // Close modal
 closeBtn.onclick = function() {
     modal.style.display = "none";
 }
+
 // Close modal when clicking outside
 window.onclick = function(event) {
     if (event.target == modal) {
         modal.style.display = "none";
     }
 }
+
 // Update total price when travelers change
 document.getElementById("travelers").addEventListener("change", function() {
     const price = parseInt(document.getElementById("tourPrice").value);
@@ -797,9 +1097,15 @@ document.getElementById("travelers").addEventListener("change", function() {
     const total = price * travelers;
     document.getElementById("totalPriceDisplay").textContent = `$${total}`;
 });
+
 // Handle form submission with loading state and notification
 document.getElementById("bookingForm").addEventListener("submit", function(e) {
     e.preventDefault();
+    
+    // Check date availability before proceeding
+    if (!checkDateAvailability()) {
+        return;
+    }
     
     // Get form data
     const formData = new FormData(this);
@@ -847,6 +1153,9 @@ document.getElementById("bookingForm").addEventListener("submit", function(e) {
     })
     .then(data => {
         if (data.ok) {
+            // Update reservation count
+            updateReservationCount(bookingData.tourDate);
+            
             // Show success notification instead of alert
             showNotification(`Thank you ${bookingData.fullName}! Your booking for ${bookingData.tourName} has been received. Total: $${total}. Please pay in cash on arrival.`);
             modal.style.display = "none";
@@ -867,30 +1176,12 @@ document.getElementById("bookingForm").addEventListener("submit", function(e) {
         submitBtn.disabled = false;
     });
 });
+
 // Smooth scroll to tours section
 function scrollToTours() {
     document.getElementById("tours").scrollIntoView({ behavior: 'smooth' });
 }
-// Lazy loading for tour card background images
-document.addEventListener("DOMContentLoaded", function() {
-    // Initialize language
-    initializeLanguage();
-    
-    const tourImages = document.querySelectorAll('.tour-image[data-background]');
-    const imageObserver = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const img = entry.target;
-                const bgUrl = img.getAttribute('data-background');
-                img.style.backgroundImage = `url('${bgUrl}')`;
-                img.removeAttribute('data-background');
-                imageObserver.unobserve(img);
-            }
-        });
-    });
-    
-    tourImages.forEach(img => imageObserver.observe(img));
-});
+
 // Notification system
 function showNotification(message, type = 'success') {
     const notification = document.getElementById('notification');
@@ -906,3 +1197,31 @@ function showNotification(message, type = 'success') {
         notification.classList.remove('show');
     }, 5000);
 }
+
+// Initialize everything when DOM is loaded
+document.addEventListener("DOMContentLoaded", function() {
+    // Initialize language
+    initializeLanguage();
+    
+    // Initialize date availability
+    initializeDateAvailability();
+    
+    // Setup admin panel
+    setupAdminPanel();
+    
+    // Lazy loading for tour card background images
+    const tourImages = document.querySelectorAll('.tour-image[data-background]');
+    const imageObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const img = entry.target;
+                const bgUrl = img.getAttribute('data-background');
+                img.style.backgroundImage = `url('${bgUrl}')`;
+                img.removeAttribute('data-background');
+                imageObserver.unobserve(img);
+            }
+        });
+    });
+    
+    tourImages.forEach(img => imageObserver.observe(img));
+});
